@@ -1,0 +1,8 @@
+{
+  "name": "Mobb.2",
+  "description": "Mobb version 2 ",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

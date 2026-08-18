@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+:root {
+  --bg: #ffffff;
+  --text-primary: #111827;
+  --accent-pink: #FF385C;
+  --accent-pink-hover: #E01E4F;
+  --hero-bg: #1E1E24;
+
+  /* Typography & Theme CSS Variables */
+  --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-serif: Georgia, Cambria, 'Times New Roman', Times, serif;
+  --color-pink: #FF385C;
+  --color-pink-hover: #E01E4F;
+  --color-dark-charcoal: #1E1E24;
+}
+
+body {
+  background-color: #ffffff;
+  color: #111827;
+  font-family: var(--font-display);
+  font-size: clamp(0.95rem, 1.5vw, 1rem);
+  line-height: 1.6;
+}
+
+/* Standardized Typography classes */
+h1, .font-h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 3.8vw, 3.25rem) !important;
+  font-weight: 800 !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.02em;
+}
+
+h2, .font-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.25rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  letter-spacing: -0.015em;
+}
+
+h3, .font-h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 3vw, 1.35rem) !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.01em;
+}
+
+h4, .font-h4 {
+  font-family: var(--font-display);
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+}
+
+p, .font-body {
+  font-family: var(--font-display);
+  font-size: clamp(0.95rem, 1.5vw, 1rem) !important;
+  line-height: 1.6 !important;
+  font-weight: 400 !important;
+}
+
+/* Specific components helper classes */
+.hero-subtitle {
+  font-family: var(--font-display);
+  font-size: 1.125rem !important;
+  font-weight: 400 !important;
+  color: #d1d5db !important; /* muted gray */
+  line-height: 1.6 !important;
+}
+
+.text-accent-pink {
+  color: var(--color-pink) !important;
+}
+
+.bg-accent-pink {
+  background-color: var(--color-pink) !important;
+}
+
+.border-accent-pink {
+  border-color: var(--color-pink) !important;
+}
+
+.font-serif-italic {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-style: normal;
+  font-weight: 700;
+  color: rgb(14, 17, 23);
+  font-size: 28px;
+  line-height: 36px;
+  letter-spacing: -0.02em;
+}
+
+.hero-headline {
+  font-family: var(--font-display);
+  font-style: normal;
+  font-weight: 800;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+/* Custom smooth scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Gradient sweep animation for Mobb style headline highlight */
+@keyframes gradientSweep {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-sweep {
+  background-size: 200% auto;
+  animation: gradientSweep 3.5s ease infinite;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+/* Hide scrollbar utility for clean carousel swipe */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Infinite Horizontal Brand Ticker Animation */
+@keyframes tickerFlow {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-ticker-flow {
+  display: flex;
+  width: max-content;
+  animation: tickerFlow 55s linear infinite;
+}
+
+.animate-ticker-flow:hover {
+  animation-play-state: paused;
+}
+
+@keyframes floatUpFade8 {
+  0% {
+    opacity: 0;
+    transform: translateY(12px) scale(0.92);
+  }
+  4% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+  14% {
+    opacity: 0.95;
+    transform: translateY(-28px) scale(0.98);
+  }
+  26% {
+    opacity: 0.4;
+    transform: translateY(-62px) scale(0.95);
+  }
+  36% {
+    opacity: 0;
+    transform: translateY(-90px) scale(0.9);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-90px) scale(0.9);
+  }
+}
+
+.animate-float-review {
+  animation-name: floatUpFade8;
+  animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
+
+/* ==========================================================================
+   Standardized Collabstr Feature Mockup Design System
+   ========================================================================== */
+.feature-grid-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 4rem;
+  width: 100%;
+}
+
+@media (max-width: 991px) {
+  .feature-grid-row {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+.feature-card-wrapper {
+  width: 100%;
+  max-width: 540px;
+  min-height: 380px;
+  border-radius: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem; /* 48px padding all around */
+  box-sizing: border-box;
+  margin: 0 auto;
+  position: relative;
+}
+
+@media (max-width: 640px) {
+  .feature-card-wrapper {
+    padding: 1.5rem;
+    min-height: 320px;
+    border-radius: 28px;
+  }
+}
+
+.feature-card-inner {
+  width: 100%;
+  max-width: 440px;
+  min-height: 260px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+  padding: 1.75rem;
+  overflow: hidden;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media (max-width: 640px) {
+  .feature-card-inner {
+    padding: 1.25rem;
+    border-radius: 18px;
+  }
+}
