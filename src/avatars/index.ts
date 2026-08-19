@@ -20,6 +20,9 @@ import renateReinsveImg from './renatereinsve.jpg';
 import simplyMrFrostImg from './simply_mr.frost.jpg';
 import sofiaJensenImg from './sofia_jensen.jpg';
 import stephenGImg from './stephen_g___.jpg';
+import luiseBlumstengelImg from './luiseblumstengel.jpg';
+import outOfAlexCamImg from './outofalexcam.jpg';
+import throughGiuliaLensImg from './through.giulialens.jpg';
 
 export {
   alicjaWerniewiczImg,
@@ -42,6 +45,9 @@ export {
   simplyMrFrostImg,
   sofiaJensenImg,
   stephenGImg,
+  luiseBlumstengelImg,
+  outOfAlexCamImg,
+  throughGiuliaLensImg,
 };
 
 export const ALL_AVATARS = [

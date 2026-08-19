@@ -1,6 +1,8 @@
-import React from 'react';
+interface CtaSectionProps {
+  onNavigate?: (page: 'home' | 'search-creators' | 'creator-chat' | 'performance-tracking' | 'campaign-briefs' | 'secure-global-payments' | 'team-workspace' | 'bring-manage-creators' | 'marketing-teams' | 'agencies' | 'founders' | 'ugc-for-ads' | 'influencer-marketing' | 'affiliate-marketing' | 'pricing' | 'for-creators' | 'case-studies') => void;
+}
 
-export function CtaSection() {
+export function CtaSection({ onNavigate }: CtaSectionProps) {
   return (
     <section className="w-full py-6 sm:py-10 bg-white">
       {/* Container matching max-w-[1140px] */}
@@ -16,25 +18,21 @@ export function CtaSection() {
           </h2>
 
           {/* Subtitle Description */}
-          <p className="text-gray-300 text-xs sm:text-sm md:text-base leading-relaxed mb-6 max-w-2xl font-normal">
-            Search 1.1m+ vetted creators right now. See audience demographics, pricing, and engagement rate before you commit. Your first order is one search away.
+          <p className="text-gray-400 text-sm sm:text-base max-w-xl mx-auto mb-8 leading-relaxed">
+            Search 500,000+ vetted creators right now. See audience demographics, pricing, and engagement rate before you commit. Your first order is one search away.
           </p>
 
-          {/* Action Button */}
-          <div className="mb-6">
-            <a
-              href="#search"
-              className="inline-flex items-center justify-center bg-white hover:bg-gray-100 text-gray-900 font-extrabold text-xs sm:text-sm px-7 py-3 rounded-2xl transition-all shadow-md active:scale-95"
+          <div className="flex items-center justify-center">
+            <button
+              onClick={() => onNavigate?.('search-creators')}
+              className="inline-flex items-center justify-center bg-white hover:bg-gray-100 text-gray-900 font-bold px-8 py-3.5 rounded-xl transition-all duration-200 shadow-lg text-sm cursor-pointer"
             >
-              Search Creators Free
-            </a>
+              Search Creators
+            </button>
           </div>
 
-          {/* Sub-features Footer */}
-          <div className="flex items-center justify-center gap-4 sm:gap-8 text-xs text-gray-400 font-medium flex-wrap">
-            <span>Free to start</span>
-            <span className="hidden sm:inline text-gray-600">•</span>
-            <span>1.1m+ vetted creators</span>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-xs text-gray-400 font-medium">
+            <span>500,000+ vetted creators</span>
             <span className="hidden sm:inline text-gray-600">•</span>
             <span>Transparent creator fees</span>
           </div>

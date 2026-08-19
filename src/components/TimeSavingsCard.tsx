@@ -15,31 +15,31 @@ const STEPS_DATA: WorkflowStepItem[] = [
   {
     id: 'find',
     name: 'Find creators',
-    before: '4-6 hrs',
-    mobb: '10 min',
+    before: '8-12 hrs',
+    mobb: '15 min',
     icon: <Search className="w-3 h-3 text-white" />,
     iconBg: 'bg-purple-600',
   },
   {
     id: 'vet',
     name: 'Vet creators',
-    before: '2-4 hrs',
-    mobb: '7 min',
+    before: '5-8 hrs',
+    mobb: '10 min',
     icon: <UserCheck className="w-3 h-3 text-white" />,
     iconBg: 'bg-teal-600',
   },
   {
     id: 'reach',
     name: 'Reach out',
-    before: '3-5 hrs',
-    mobb: '7 min',
+    before: '6-9 hrs',
+    mobb: '10 min',
     icon: <MessageSquare className="w-3 h-3 text-white" />,
     iconBg: 'bg-[#e05238]',
   },
   {
     id: 'negotiate',
     name: 'Negotiate and email',
-    before: '2-3 hrs',
+    before: '5-7 hrs',
     mobb: '10 min',
     icon: <Mail className="w-3 h-3 text-white" />,
     iconBg: 'bg-blue-600',
@@ -47,7 +47,7 @@ const STEPS_DATA: WorkflowStepItem[] = [
   {
     id: 'contract',
     name: 'Contract and sign',
-    before: '2-4 hrs',
+    before: '4-6 hrs',
     mobb: '0 min',
     icon: <FileText className="w-3 h-3 text-white" />,
     iconBg: 'bg-[#232731]',
@@ -55,7 +55,7 @@ const STEPS_DATA: WorkflowStepItem[] = [
   {
     id: 'track',
     name: 'Track performance',
-    before: '3-5 hrs',
+    before: '6-8 hrs',
     mobb: '0 min',
     icon: <TrendingUp className="w-3 h-3 text-white" />,
     iconBg: 'bg-emerald-600',
@@ -63,7 +63,7 @@ const STEPS_DATA: WorkflowStepItem[] = [
   {
     id: 'reports',
     name: 'Build reports',
-    before: '2-4 hrs',
+    before: '5-8 hrs',
     mobb: '5 min',
     icon: <BarChart3 className="w-3 h-3 text-white" />,
     iconBg: 'bg-amber-500',
@@ -71,8 +71,8 @@ const STEPS_DATA: WorkflowStepItem[] = [
   {
     id: 'payment',
     name: 'Process payment',
-    before: '2-4 hrs',
-    mobb: '3 min',
+    before: '4-7 hrs',
+    mobb: '5 min',
     icon: <CreditCard className="w-3 h-3 text-white" />,
     iconBg: 'bg-emerald-600',
   },
@@ -107,19 +107,19 @@ export function TimeSavingsCard() {
             
             {/* Left White Stage (Table Card) */}
             <div className="lg:col-span-7 w-full h-full flex items-center">
-              <div className="bg-white rounded-[24px] sm:rounded-[32px] p-4 sm:p-5 shadow-sm border border-gray-100 w-full h-full min-h-[360px] sm:min-h-[410px] md:min-h-[440px] lg:min-h-[460px] my-0 mr-0 flex flex-col justify-between select-none">
+              <div className="bg-white rounded-[24px] sm:rounded-[32px] p-5 sm:p-6 shadow-sm border border-gray-100 w-full h-full min-h-[440px] sm:min-h-[470px] lg:min-h-[500px] my-0 mr-0 flex flex-col justify-between select-none">
                 
                 {/* Table Content */}
-                <div className="w-full">
+                <div className="w-full flex-1 flex flex-col justify-between">
                   {/* Table Header */}
-                  <div className="grid grid-cols-12 items-center pb-2 mb-0.5 border-b border-gray-100 text-[9px] sm:text-[10px] font-bold tracking-wider text-gray-400 uppercase">
+                  <div className="grid grid-cols-12 items-center pb-2.5 mb-1 border-b border-gray-100 text-[9px] sm:text-[10px] font-bold tracking-wider text-gray-400 uppercase shrink-0">
                     <div className="col-span-6 sm:col-span-7 pl-1">STEP</div>
                     <div className="col-span-3 sm:col-span-2 text-center">BEFORE</div>
                     <div className="col-span-3 text-right text-[#e05285] font-black">MOBB</div>
                   </div>
 
                   {/* Step Rows */}
-                  <div className="flex flex-col divide-y divide-gray-50/80">
+                  <div className="flex-1 flex flex-col justify-between divide-y divide-gray-50/80 my-1">
                     {STEPS_DATA.map((step, idx) => {
                       const isVisible = visibleCount > idx;
                       return (
@@ -128,11 +128,11 @@ export function TimeSavingsCard() {
                           initial={{ opacity: 0, y: 6 }}
                           animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 6 }}
                           transition={{ duration: 0.3, ease: 'easeOut' }}
-                          className="grid grid-cols-12 items-center py-1 sm:py-1.5 text-xs font-semibold"
+                          className="grid grid-cols-12 items-center py-2 sm:py-2.5 lg:py-2.5 text-xs font-semibold"
                         >
                           {/* Step Name & Icon */}
-                          <div className="col-span-6 sm:col-span-7 flex items-center gap-2 pl-1">
-                            <span className={`w-5 h-5 rounded-md ${step.iconBg} flex items-center justify-center shrink-0 shadow-xs`}>
+                          <div className="col-span-6 sm:col-span-7 flex items-center gap-2.5 pl-1">
+                            <span className={`w-5.5 h-5.5 rounded-md ${step.iconBg} flex items-center justify-center shrink-0 shadow-xs`}>
                               {step.icon}
                             </span>
                             <span className="text-gray-900 font-bold text-[11px] sm:text-xs tracking-tight">
@@ -158,7 +158,7 @@ export function TimeSavingsCard() {
                 </div>
 
                 {/* Footer Summary Section (Appears after all 8 steps) */}
-                <div className="mt-2 pt-2 sm:mt-3 sm:pt-2.5 border-t border-gray-100/90">
+                <div className="mt-2 pt-2.5 sm:mt-3 sm:pt-3 border-t border-gray-100/90 shrink-0">
                   {/* Summary Row 1: Tools used */}
                   <motion.div
                     initial={{ opacity: 0 }}
@@ -178,13 +178,13 @@ export function TimeSavingsCard() {
                     initial={{ opacity: 0 }}
                     animate={visibleCount >= 9 ? { opacity: 1 } : { opacity: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="grid grid-cols-12 items-center pt-1 text-xs font-bold"
+                    className="grid grid-cols-12 items-center pt-1.5 text-xs font-bold"
                   >
                     <div className="col-span-6 sm:col-span-7 pl-1 text-gray-900 font-extrabold text-xs sm:text-[13px]">Total time</div>
                     <div className="col-span-3 sm:col-span-2 text-center text-gray-400 font-semibold text-xs sm:text-[13px]">
-                      <span className="line-through decoration-2 decoration-gray-400">25-43 hrs</span>
+                      <span className="line-through decoration-2 decoration-gray-400">43-67 hrs</span>
                     </div>
-                    <div className="col-span-3 text-right font-black text-[#e05285] text-xs sm:text-sm">~1 hr</div>
+                    <div className="col-span-3 text-right font-black text-[#e05285] text-xs sm:text-sm">55 min</div>
                   </motion.div>
                 </div>
 
@@ -197,10 +197,10 @@ export function TimeSavingsCard() {
               {/* Big Hours Headline */}
               <div className="flex items-center gap-3 sm:gap-4 mb-5 flex-wrap">
                 <span className="text-4xl sm:text-5xl md:text-[52px] font-black text-gray-500/80 line-through decoration-gray-500 tracking-tight">
-                  40 hours
+                  55 hours
                 </span>
                 <span className="text-4xl sm:text-5xl md:text-[52px] font-black text-white tracking-tight">
-                  1 hour
+                  55 min
                 </span>
               </div>
 

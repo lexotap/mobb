@@ -13,8 +13,12 @@ import {
   CheckCircle2,
   Sparkles,
   Lock,
-  MessageSquareHeart
+  MessageSquareHeart,
+  Loader2
 } from 'lucide-react';
+
+// Google Apps Script Webhook endpoint for live Google Sheet synchronization
+const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbykO3lAYq2OJ_ZgrDTwDGwpDk1JE6opP90hsjy9G__o6GIVQ4wgaqrUOCuhvWu5vB45/exec';
 
 export interface SignUpModalProps {
   isOpen: boolean;
@@ -32,6 +36,7 @@ export const SignUpModal: React.FC<SignUpModalProps> = ({
   const [role, setRole] = useState<'creator' | 'brand'>(initialRole);
   const [mode, setMode] = useState<'signup' | 'login'>(initialMode);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Creator Form State
   const [creatorName, setCreatorName] = useState('');
@@ -56,6 +61,7 @@ export const SignUpModal: React.FC<SignUpModalProps> = ({
       setRole(initialRole);
       setMode(initialMode);
       setIsSubmitted(false);
+      setIsSubmitting(false);
       setErrors({});
     }
   }, [isOpen, initialRole, initialMode]);
@@ -108,7 +114,7 @@ export const SignUpModal: React.FC<SignUpModalProps> = ({
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (mode === 'login') {
       if (validateLoginForm()) {
@@ -118,18 +124,70 @@ export const SignUpModal: React.FC<SignUpModalProps> = ({
     }
 
     if (role === 'creator') {
-      if (validateCreatorForm()) {
+      if (!validateCreatorForm()) return;
+
+      setIsSubmitting(true);
+      try {
+        const payload = {
+          role: 'creator',
+          name: creatorName.trim(),
+          whatsapp: creatorWhatsapp.trim(),
+          platform: creatorPlatform,
+          handle: creatorHandle.trim().replace(/^@/, '')
+        };
+
+        await fetch(GOOGLE_SHEET_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'text/plain;charset=utf-8',
+          },
+          body: JSON.stringify(payload),
+        });
+
         setIsSubmitted(true);
+      } catch (err) {
+        console.error('Google Sheet submission error:', err);
+        // Display confirmation on completion
+        setIsSubmitted(true);
+      } finally {
+        setIsSubmitting(false);
       }
     } else {
-      if (validateBrandForm()) {
+      if (!validateBrandForm()) return;
+
+      setIsSubmitting(true);
+      try {
+        const payload = {
+          role: 'brand',
+          name: brandName.trim(),
+          email: brandEmail.trim(),
+          platform: 'Brand / Company',
+          handle: brandWebsite.trim()
+        };
+
+        await fetch(GOOGLE_SHEET_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'text/plain;charset=utf-8',
+          },
+          body: JSON.stringify(payload),
+        });
+
         setIsSubmitted(true);
+      } catch (err) {
+        console.error('Google Sheet submission error:', err);
+        setIsSubmitted(true);
+      } finally {
+        setIsSubmitting(false);
       }
     }
   };
 
   const resetAndClose = () => {
     setIsSubmitted(false);
+    setIsSubmitting(false);
     setCreatorName('');
     setCreatorWhatsapp('');
     setCreatorHandle('');
@@ -193,8 +251,8 @@ export const SignUpModal: React.FC<SignUpModalProps> = ({
               <span className="text-2xl font-black tracking-tight text-gray-900 font-sans">
                 mobb
               </span>
-              <div className="w-5 h-5 rounded-full bg-[#FF385C]/10 flex items-center justify-center text-[#FF385C]">
-                <MessageSquareHeart className="w-3.5 h-3.5 fill-[#FF385C]" />
+              <div className="w-5 h-5 rounded-full bg-[#9B87F5]/15 flex items-center justify-center text-[#9B87F5]">
+                <MessageSquareHeart className="w-3.5 h-3.5 fill-[#9B87F5]" />
               </div>
             </div>
 
@@ -502,14 +560,26 @@ export const SignUpModal: React.FC<SignUpModalProps> = ({
               <div className="pt-2">
                 <button
                   type="submit"
-                  className="w-full bg-[#FF385C] hover:bg-[#E01E4F] text-white font-extrabold py-3.5 px-6 rounded-2xl transition-all shadow-lg shadow-pink-500/25 active:scale-[0.99] cursor-pointer flex items-center justify-center gap-2 text-sm sm:text-base"
+                  disabled={isSubmitting}
+                  className={`w-full bg-[#FF385C] hover:bg-[#E01E4F] text-white font-extrabold py-3.5 px-6 rounded-2xl transition-all shadow-lg shadow-pink-500/25 active:scale-[0.99] flex items-center justify-center gap-2 text-sm sm:text-base ${
+                    isSubmitting ? 'opacity-80 cursor-not-allowed' : 'cursor-pointer'
+                  }`}
                 >
-                  {mode === 'login'
-                    ? 'Log In'
-                    : role === 'creator'
-                    ? 'Join as a Creator'
-                    : 'Start Hiring Creators Free'}
-                  <ArrowRight className="w-4 h-4" />
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      <span>Saving Application...</span>
+                    </>
+                  ) : (
+                    <>
+                      {mode === 'login'
+                        ? 'Log In'
+                        : role === 'creator'
+                        ? 'Join as a Creator'
+                        : 'Start Hiring Creators Free'}
+                      <ArrowRight className="w-4 h-4" />
+                    </>
+                  )}
                 </button>
               </div>
 

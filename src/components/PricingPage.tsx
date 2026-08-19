@@ -22,6 +22,7 @@ import {
   HelpCircle
 } from 'lucide-react';
 import { TrustedBrands } from './TrustedBrands';
+import { WhatBrandsSay } from './WhatBrandsSay';
 import {
   dbrkvImg,
   hermanStrydomImg,
@@ -38,6 +39,7 @@ import {
   theDorianCardCoverImg,
   milleCardCoverImg,
   porscheCardCoverImg,
+  porscheInsideCoverImg,
 } from '../casestudies';
 
 interface PricingPageProps {
@@ -116,7 +118,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({
       buttonText: 'Join for Free',
       buttonClass: 'bg-white border border-gray-300 text-gray-800 hover:bg-gray-50',
       features: [
-        { text: 'Search 1.1m+ creators', enabled: true },
+        { text: 'Search 500,000+ creators', enabled: true },
         { text: 'Direct hire from profiles', enabled: true },
         { text: 'Secure payments & escrow', enabled: true, tooltip: 'Funds held in escrow until work approved' },
         { text: '10% hiring fee', enabled: true, tooltip: 'Standard marketplace processing fee' },
@@ -190,7 +192,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({
     {
       category: 'SEARCH & HIRING',
       rows: [
-        { feature: 'Manually search 1.1m+ creators', free: true, pro: true, premium: true, enterprise: true },
+        { feature: 'Manually search 500,000+ creators', free: true, pro: true, premium: true, enterprise: true },
         { feature: 'Directly hire creators one-by-one', free: true, pro: true, premium: true, enterprise: true },
         { feature: 'Secure payments & escrow', free: true, pro: true, premium: true, enterprise: true, tooltip: 'Payment held safely until work approved' },
         { feature: 'Hiring fee', free: '10%', pro: '10%', premium: '5%', enterprise: 'Custom', tooltip: 'Marketplace processing fee' },
@@ -235,7 +237,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({
       id: 'discover',
       tabLabel: 'Discover',
       tabIcon: Search,
-      title: 'Search 1.1m+ vetted creators',
+      title: 'Search 500,000+ vetted creators',
       description: 'Every creator on Mobb is verified before joining the marketplace. Search by platform, niche, location, follower count, and engagement rate. Advanced filters narrow by audience age, language, ethnicity, and more.',
       bullets: [
         'Save shortlists to revisit and compare across campaigns',
@@ -245,7 +247,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({
         <div className="bg-white rounded-3xl p-6 shadow-xl border border-gray-100 relative overflow-hidden">
           <div className="flex items-center gap-2 mb-4 pb-3 border-b border-gray-100">
             <Search className="w-4 h-4 text-gray-400" />
-            <span className="text-xs font-medium text-gray-400">Search 1,100,000+ creators...</span>
+            <span className="text-xs font-medium text-gray-400">Search 500,000+ creators...</span>
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div className="rounded-2xl border border-gray-100 p-3 bg-gray-50/50 hover:bg-white hover:shadow-md transition-all">
@@ -891,8 +893,8 @@ export const PricingPage: React.FC<PricingPageProps> = ({
       </section>
 
       {/* CUSTOMER STORIES / BRANDS THAT RUN ON MOBB */}
-      <section className="mt-24 bg-gray-50/80 py-16 px-4 sm:px-6 lg:px-8 border-y border-gray-100">
-        <div className="max-w-6xl mx-auto text-center">
+      <section className="mt-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center">
           <span className="text-xs font-bold text-[#f43f5e] uppercase tracking-widest bg-pink-100/70 px-3 py-1 rounded-full">
             CUSTOMER STORIES
           </span>
@@ -903,38 +905,40 @@ export const PricingPage: React.FC<PricingPageProps> = ({
             Here's what teams using Mobb for ongoing creator programs have to say.
           </p>
 
-          {/* Mane Theory Feature Quote Card */}
+          {/* Porsche Design Feature Quote Card */}
           <div className="mt-10 bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-gray-100 text-left grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
             
-            {/* Product Image */}
+            {/* Product / Campaign Image */}
             <div className="md:col-span-5 relative rounded-2xl overflow-hidden h-64 sm:h-80 shadow-md">
               <img
-                src={niloofarTaghaviImg}
-                alt="Halo Extensions - Mane Theory"
+                src={porscheInsideCoverImg}
+                alt="Porsche Design Luxury Campaign"
                 className="w-full h-full object-cover"
               />
-              <div className="absolute bottom-3 left-3 bg-black/70 backdrop-blur-md px-3 py-1.5 rounded-xl text-white text-xs font-bold">
-                Mane Theory
+              <div className="absolute bottom-3 left-3 bg-black/70 backdrop-blur-md px-3 py-1.5 rounded-xl text-white text-xs font-bold flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-rose-500 animate-pulse" />
+                Porsche Design
               </div>
             </div>
 
             {/* Quote Body */}
             <div className="md:col-span-7 flex flex-col justify-between">
               <p className="text-base sm:text-xl font-medium text-gray-800 leading-relaxed italic">
-                “We run creator content on a monthly basis. Having campaigns and live post tracking in one place means we are not cobbling things together across tools. I don't need a spreadsheet, a separate analytics tool, and a messaging app, it's all in one place.”
+                “Mobb allowed us to partner with high-calibre automotive and luxury creators across Europe, driving millions of high-intent impressions with flawless execution and brand safety.”
               </p>
 
               <div className="mt-6 pt-6 border-t border-gray-100 flex items-center justify-between">
                 <div>
-                  <div className="font-extrabold text-sm text-gray-900">Marsha Jean-Louis</div>
-                  <div className="text-xs text-gray-500">CEO Mane Theory</div>
+                  <div className="font-extrabold text-sm text-gray-900">Head of Brand Partnerships</div>
+                  <div className="text-xs text-gray-500 font-medium">Porsche Design Europe</div>
                 </div>
 
                 <button
-                  onClick={() => onNavigateCaseStudies?.('marriott')}
-                  className="px-4 py-2 bg-[#232323] hover:bg-black text-white text-xs font-bold rounded-xl flex items-center gap-2 transition-all cursor-pointer"
+                  onClick={() => onNavigateCaseStudies?.('porsche')}
+                  className="px-4 py-2 bg-[#232323] hover:bg-black text-white text-xs font-bold rounded-xl flex items-center gap-2 transition-all cursor-pointer shadow-xs group"
                 >
-                  <ExternalLink className="w-3.5 h-3.5" /> View Case Study
+                  <ExternalLink className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  View Case Study
                 </button>
               </div>
             </div>

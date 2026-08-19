@@ -1,7 +1,12 @@
 import React from 'react';
 import marriottLogo from '../logos/marriott-logo-black-and-white.png';
+import klarnaLogo from '../logos/Klarna-Logo-PNG3.png';
+import revolutLogo from '../logos/Revolut-Logo.png';
+import emaarLogo from '../logos/Emaar-Properties-Logo.png';
+import xiaomiLogo from '../logos/xiaomi-logo-black-and-white.png';
 import aliexpressLogo from '../logos/aliexpress_logo_icon_247663.png';
 import hellofreshLogo from '../logos/icons8-hello-fresh-50.png';
+import logoAd80 from '../logos/ad80efb61f5ca8eb4580de3b12bf3050.png';
 import logoBae from '../logos/bae61f92cd6cbca4af71516643c466e0.png';
 import logoIdj from '../logos/idjSN5F2Nq_1787002922204.png';
 import logo1208867 from '../logos/1208867.png';
@@ -12,12 +17,32 @@ const BRAND_LOGOS = [
     src: marriottLogo,
   },
   {
+    name: 'Klarna',
+    src: klarnaLogo,
+  },
+  {
+    name: 'Revolut',
+    src: revolutLogo,
+  },
+  {
+    name: 'Emaar Properties',
+    src: emaarLogo,
+  },
+  {
+    name: 'Xiaomi',
+    src: xiaomiLogo,
+  },
+  {
     name: 'AliExpress',
     src: aliexpressLogo,
   },
   {
     name: 'HelloFresh',
     src: hellofreshLogo,
+  },
+  {
+    name: 'Brand Partner',
+    src: logoAd80,
   },
   {
     name: 'Brand Partner',

@@ -118,7 +118,7 @@ export const SearchCreatorsPage: React.FC<SearchCreatorsPageProps> = ({
             </h1>
 
             <p className="text-gray-600 text-base sm:text-lg lg:text-[19px] leading-relaxed mb-8 max-w-xl">
-              Search 1.1m+ vetted creators by platform, niche, audience, and budget. View full profiles with real pricing before you commit to anything.
+              Search 500,000+ vetted creators by platform, niche, audience, and budget. View full profiles with real pricing before you commit to anything.
             </p>
 
             {/* Checkmark Badges */}
@@ -462,7 +462,7 @@ export const SearchCreatorsPage: React.FC<SearchCreatorsPageProps> = ({
               Find The Right Creator Before You Commit.
             </h3>
             <p className="text-gray-600 text-base leading-relaxed">
-              Filter 1.1m+ vetted creators by platform, niche, location, follower count, engagement rate, audience age, language, and ethnicity. Results narrow in real time, so you move from a broad category to a qualified shortlist in a single session.
+              Filter 500,000+ vetted creators by platform, niche, location, follower count, engagement rate, audience age, language, and ethnicity. Results narrow in real time, so you move from a broad category to a qualified shortlist in a single session.
             </p>
           </div>
 
@@ -713,7 +713,7 @@ export const SearchCreatorsPage: React.FC<SearchCreatorsPageProps> = ({
           </h2>
 
           <p className="text-gray-300 text-sm sm:text-base md:text-lg max-w-xl mx-auto mb-8 font-normal leading-relaxed">
-            Search 1.1m+ vetted creators for free. Pricing visible on every profile. No subscription required to browse.
+            Search 500,000+ vetted creators for free. Pricing visible on every profile. No subscription required to browse.
           </p>
 
           <a

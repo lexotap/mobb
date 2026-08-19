@@ -21,6 +21,7 @@ import {
   Globe
 } from 'lucide-react';
 import { TrustedBrands } from './TrustedBrands';
+import { WhatBrandsSay } from './WhatBrandsSay';
 import {
   niloofarTaghaviImg,
   janarJuhkovImg,
@@ -29,6 +30,8 @@ import {
   murielMangenaImg,
   oliviaPezzenteImg,
   stephenGImg,
+  throughGiuliaLensImg,
+  renateReinsveImg,
 } from '../avatars';
 
 interface InfluencerMarketingPageProps {
@@ -76,7 +79,7 @@ export const InfluencerMarketingPage: React.FC<InfluencerMarketingPageProps> = (
   };
 
   const toolsTabs = [
-    { id: 1, label: '01 Creator Discovery', title: 'Find the Right Creator before You Commit', description: 'Search 1.1m+ vetted Creators by platform, niche, audience, and budget. See verified engagement rates and demographics before you commit. Spend less time searching and more time running campaigns.', pills: ['Vetted creators', 'Detailed audience demographics', 'Free to search'] },
+    { id: 1, label: '01 Creator Discovery', title: 'Find the Right Creator before You Commit', description: 'Search 500,000+ vetted Creators by platform, niche, audience, and budget. See verified engagement rates and demographics before you commit. Spend less time searching and more time running campaigns.', pills: ['Vetted creators', 'Detailed audience demographics', 'Free to search'] },
     { id: 2, label: '02 AI Campaign Briefs', title: 'AI-Powered Campaign Brief Generator', description: 'Generate clear guidelines in seconds. Include hooks, visual guidelines, file requirements, and brand guardrails without writing from scratch.', pills: ['Instant AI briefs', 'Platform specs', 'Custom deliverables'] },
     { id: 3, label: '03 Order Management', title: 'Track Submissions & Revisions in One Place', description: 'Review creator content submissions directly in your browser. Request edits or accept content with a single click. Centralize all campaign assets.', pills: ['In-browser review', 'Unlimited revisions', 'Asset library'] },
     { id: 4, label: '04 Global Payments', title: 'Escrow Protection & Automated Invoicing', description: 'Hold payments safely until content is approved. Automatically generate tax forms, multi-currency invoices, and receipts for your finance team.', pills: ['Escrow protection', 'Multi-currency', 'Automated receipts'] },
@@ -137,7 +140,7 @@ export const InfluencerMarketingPage: React.FC<InfluencerMarketingPageProps> = (
                 <span className="w-4 h-4 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0">
                   <Check className="w-2.5 h-2.5 stroke-[3]" />
                 </span>
-                1.1m+ vetted creators across Instagram, TikTok, and YouTube
+                500,000+ vetted creators across Instagram, TikTok, and YouTube
               </div>
 
               <div className="bg-gray-100/90 rounded-full px-3.5 py-1.5 text-xs font-medium text-gray-700 flex items-center gap-1.5">
@@ -161,7 +164,7 @@ export const InfluencerMarketingPage: React.FC<InfluencerMarketingPageProps> = (
                 <Search className="w-5 h-5 text-gray-400 ml-3 shrink-0" />
                 <input
                   type="text"
-                  placeholder="Search 1.1m+ creators by niche, platform"
+                  placeholder="Search 500,000+ creators by niche, platform"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full px-3 py-2 text-xs sm:text-sm text-gray-900 bg-transparent focus:outline-none"
@@ -197,16 +200,16 @@ export const InfluencerMarketingPage: React.FC<InfluencerMarketingPageProps> = (
               {/* Creator Card Center Left */}
               <div className="absolute top-16 left-12 w-[220px] h-[240px] rounded-2xl overflow-hidden border-2 border-white/10 shadow-2xl z-10">
                 <img
-                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400"
+                  src={throughGiuliaLensImg}
                   alt="Creator Main"
-                  className="w-full h-full object-cover grayscale"
+                  className="w-full h-full object-cover"
                 />
               </div>
 
               {/* Creator Card Bottom Right */}
               <div className="absolute bottom-12 right-12 w-[200px] h-[220px] rounded-2xl overflow-hidden border-2 border-rose-500/40 shadow-2xl z-10">
                 <img
-                  src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=400"
+                  src={renateReinsveImg}
                   alt="Creator Overlay"
                   className="w-full h-full object-cover"
                 />
@@ -503,75 +506,10 @@ export const InfluencerMarketingPage: React.FC<InfluencerMarketingPageProps> = (
       </section>
 
       {/* ------------------------------------------------------------- */}
-      {/* SECTION 6: TESTIMONIAL BLOCK (WEALTHSIMPLE)                  */}
+      {/* SECTION 6: WHAT BRANDS SAY                                    */}
       {/* ------------------------------------------------------------- */}
-      <section className="max-w-[1140px] mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="bg-gray-50 rounded-[32px] p-8 sm:p-12 border border-gray-200/60 shadow-xs">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            
-            {/* Logo Left */}
-            <div className="lg:col-span-4 flex justify-center">
-              <div className="w-full max-w-[260px] h-[200px] bg-white rounded-3xl border border-gray-200 flex items-center justify-center shadow-md p-6">
-                <span className="text-2xl font-black text-gray-900 tracking-tight">
-                  Wealthsimple
-                </span>
-              </div>
-            </div>
-
-            {/* Testimonial Quote Right */}
-            <div className="lg:col-span-8 flex flex-col items-start text-left">
-              <p className="text-gray-800 text-lg sm:text-xl font-medium leading-relaxed mb-6">
-                "Mobb's advanced filters allowed us to shortlist 46 highly relevant influencers quickly. We worked with 29 of them across Instagram and TikTok, generating 29 engaging videos and over 3 million impressions."
-              </p>
-
-              {/* Checkmarks Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-6 w-full">
-                <div className="flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-gray-700">
-                  <span className="w-4 h-4 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0">
-                    <Check className="w-2.5 h-2.5 stroke-[3]" />
-                  </span>
-                  29 influencers hired
-                </div>
-
-                <div className="flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-gray-700">
-                  <span className="w-4 h-4 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0">
-                    <Check className="w-2.5 h-2.5 stroke-[3]" />
-                  </span>
-                  29 pieces of content produced
-                </div>
-
-                <div className="flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-gray-700">
-                  <span className="w-4 h-4 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0">
-                    <Check className="w-2.5 h-2.5 stroke-[3]" />
-                  </span>
-                  3 million impressions
-                </div>
-
-                <div className="flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-gray-700">
-                  <span className="w-4 h-4 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0">
-                    <Check className="w-2.5 h-2.5 stroke-[3]" />
-                  </span>
-                  Content whitelisted for paid distribution
-                </div>
-              </div>
-
-              <div className="text-xs text-gray-500 font-medium mb-6">
-                Marketing Team
-                <br />
-                <span className="font-bold text-gray-900">Wealthsimple</span>
-              </div>
-
-              <a
-                href="#case-study"
-                className="inline-flex items-center gap-2 bg-[#22252a] hover:bg-black text-white px-6 py-3 rounded-xl font-bold text-xs transition-all shadow-xs cursor-pointer group"
-              >
-                View case study
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-              </a>
-            </div>
-
-          </div>
-        </div>
+      <section className="py-8">
+        <WhatBrandsSay />
       </section>
 
       {/* ------------------------------------------------------------- */}
@@ -727,13 +665,13 @@ export const InfluencerMarketingPage: React.FC<InfluencerMarketingPageProps> = (
         </div>
 
         <div className="flex justify-center">
-          <a
-            href="#start-free"
+          <button
+            onClick={onNavigateSearch}
             className="inline-flex items-center gap-2 bg-[#22252a] hover:bg-black text-white px-8 py-3.5 rounded-xl font-bold text-sm transition-all duration-200 shadow-md cursor-pointer group"
           >
             Start free
             <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-          </a>
+          </button>
         </div>
       </section>
 
@@ -770,7 +708,7 @@ export const InfluencerMarketingPage: React.FC<InfluencerMarketingPageProps> = (
         </div>
 
         <div className="text-center mt-12 text-xs text-gray-500 font-medium">
-          Have another question? <a href="#contact" className="text-gray-900 font-bold underline">Contact sales →</a>
+          Have another question? <button onClick={onNavigateSearch} className="text-gray-900 font-bold underline cursor-pointer">Contact sales →</button>
         </div>
       </section>
 
@@ -789,12 +727,12 @@ export const InfluencerMarketingPage: React.FC<InfluencerMarketingPageProps> = (
           </p>
 
           <div className="flex justify-center">
-            <a
-              href="#start-free"
+            <button
+              onClick={onNavigateSearch}
               className="inline-flex items-center justify-center bg-white hover:bg-gray-100 text-gray-900 font-bold px-8 py-3.5 rounded-xl transition-all duration-200 shadow-lg text-sm cursor-pointer"
             >
               Start free
-            </a>
+            </button>
           </div>
         </div>
       </section>

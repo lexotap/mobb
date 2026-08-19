@@ -19,6 +19,18 @@ import {
 } from 'lucide-react';
 import { TrustedBrands } from './TrustedBrands';
 import { WhatBrandsSay } from './WhatBrandsSay';
+import {
+  dbrkvImg,
+  hermanStrydomImg,
+  oliviaPezzenteImg,
+  marimiqadzzeImg,
+  niloofarTaghaviImg,
+  luiseBlumstengelImg,
+  sofiaJensenImg,
+  renateReinsveImg,
+  stephenGImg,
+  ivanaMarketinImg,
+} from '../avatars';
 
 interface CampaignBriefsPageProps {
   onNavigateHome?: () => void;
@@ -70,7 +82,7 @@ export const CampaignBriefsPage: React.FC<CampaignBriefsPageProps> = ({ onNaviga
     },
     {
       q: 'What is Instant match?',
-      a: 'Instant match instantly scans Mobb’s vetted database of 1.1M+ creators as soon as your brief is complete, automatically surfacing the highest-fit creators matching your niche and criteria.',
+      a: 'Instant match instantly scans Mobb’s vetted database of 500,000+ creators as soon as your brief is complete, automatically surfacing the highest-fit creators matching your niche and criteria.',
     },
     {
       q: 'How many campaigns can I run at the same time?',
@@ -158,18 +170,18 @@ export const CampaignBriefsPage: React.FC<CampaignBriefsPageProps> = ({ onNaviga
               {/* Inner Gray Campaign Card */}
               <div className="bg-gray-100/80 rounded-2xl p-5 mb-6">
                 <h3 className="text-xl font-extrabold text-gray-900 mb-3 tracking-tight">
-                  Summer Skincare Launch
+                  Marriott Bonvoy EMEA Campaign
                 </h3>
 
                 <div className="flex flex-wrap gap-2">
                   <span className="bg-white text-gray-600 px-3.5 py-1 rounded-full text-xs font-medium shadow-2xs border border-gray-100">
-                    Beauty
+                    Hospitality
                   </span>
                   <span className="bg-white text-gray-600 px-3.5 py-1 rounded-full text-xs font-medium shadow-2xs border border-gray-100">
-                    UGC
+                    Travel UGC
                   </span>
                   <span className="bg-white text-gray-600 px-3.5 py-1 rounded-full text-xs font-medium shadow-2xs border border-gray-100">
-                    $300+
+                    €500+
                   </span>
                 </div>
               </div>
@@ -178,7 +190,7 @@ export const CampaignBriefsPage: React.FC<CampaignBriefsPageProps> = ({ onNaviga
               <div className="flex items-center justify-between pt-2">
                 <div className="text-gray-500 font-semibold text-sm">Applicants</div>
                 <span className="bg-[#f43f5e] text-white text-[11px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">
-                  12 NEW
+                  27 NEW
                 </span>
               </div>
 
@@ -187,27 +199,27 @@ export const CampaignBriefsPage: React.FC<CampaignBriefsPageProps> = ({ onNaviga
                 <div className="flex -space-x-2.5 overflow-hidden">
                   <img
                     className="inline-block h-10 w-10 rounded-full ring-2 ring-white object-cover"
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=120"
+                    src={dbrkvImg}
                     alt="Applicant"
                   />
                   <img
                     className="inline-block h-10 w-10 rounded-full ring-2 ring-white object-cover"
-                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=120"
+                    src={hermanStrydomImg}
                     alt="Applicant"
                   />
                   <img
                     className="inline-block h-10 w-10 rounded-full ring-2 ring-white object-cover"
-                    src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=120"
+                    src={oliviaPezzenteImg}
                     alt="Applicant"
                   />
                   <img
                     className="inline-block h-10 w-10 rounded-full ring-2 ring-white object-cover"
-                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=120"
+                    src={marimiqadzzeImg}
                     alt="Applicant"
                   />
                   <img
                     className="inline-block h-10 w-10 rounded-full ring-2 ring-white object-cover"
-                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=120"
+                    src={niloofarTaghaviImg}
                     alt="Applicant"
                   />
                 </div>
@@ -399,7 +411,7 @@ export const CampaignBriefsPage: React.FC<CampaignBriefsPageProps> = ({ onNaviga
                   <div className="p-2.5 bg-gray-50/80 rounded-xl border border-gray-100 flex items-center justify-between">
                     <div className="flex items-center gap-2.5">
                       <img
-                        src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=120"
+                        src={luiseBlumstengelImg}
                         alt="Janique Poulin"
                         className="w-9 h-9 rounded-full object-cover shrink-0"
                       />
@@ -422,7 +434,7 @@ export const CampaignBriefsPage: React.FC<CampaignBriefsPageProps> = ({ onNaviga
                   <div className="p-2.5 bg-gray-50/80 rounded-xl border border-gray-100 flex items-center justify-between">
                     <div className="flex items-center gap-2.5">
                       <img
-                        src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=120"
+                        src={sofiaJensenImg}
                         alt="Jenn"
                         className="w-9 h-9 rounded-full object-cover shrink-0"
                       />
@@ -445,7 +457,7 @@ export const CampaignBriefsPage: React.FC<CampaignBriefsPageProps> = ({ onNaviga
                   <div className="p-2.5 bg-gray-50/80 rounded-xl border border-gray-100 flex items-center justify-between">
                     <div className="flex items-center gap-2.5">
                       <img
-                        src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=120"
+                        src={renateReinsveImg}
                         alt="Valerie"
                         className="w-9 h-9 rounded-full object-cover shrink-0"
                       />
@@ -564,7 +576,7 @@ export const CampaignBriefsPage: React.FC<CampaignBriefsPageProps> = ({ onNaviga
                   <div className="p-3 bg-gray-50/80 rounded-xl border border-gray-100 flex items-center justify-between">
                     <div className="flex items-center gap-2.5">
                       <img
-                        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=120"
+                        src={stephenGImg}
                         alt="Steenjacobs"
                         className="w-9 h-9 rounded-full object-cover shrink-0"
                       />
@@ -585,7 +597,7 @@ export const CampaignBriefsPage: React.FC<CampaignBriefsPageProps> = ({ onNaviga
                   <div className="p-3 bg-gray-50/80 rounded-xl border border-gray-100 flex items-center justify-between">
                     <div className="flex items-center gap-2.5">
                       <img
-                        src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=120"
+                        src={ivanaMarketinImg}
                         alt="Chyna"
                         className="w-9 h-9 rounded-full object-cover shrink-0"
                       />
@@ -669,12 +681,12 @@ export const CampaignBriefsPage: React.FC<CampaignBriefsPageProps> = ({ onNaviga
         </div>
 
         <div className="text-center mt-10">
-          <a
-            href="#contact-sales"
-            className="text-xs font-bold text-gray-500 hover:text-gray-900 inline-flex items-center gap-1 transition-colors"
+          <button
+            onClick={onNavigateSearch}
+            className="text-xs font-bold text-gray-500 hover:text-gray-900 inline-flex items-center gap-1 transition-colors cursor-pointer"
           >
             Have another question? Contact sales <ArrowRight className="w-3 h-3" />
-          </a>
+          </button>
         </div>
       </section>
 
@@ -692,12 +704,12 @@ export const CampaignBriefsPage: React.FC<CampaignBriefsPageProps> = ({ onNaviga
             Write a brief, and Instant match surfaces the best-fit creators before your campaign is even published. Rates included with every application.
           </p>
 
-          <a
-            href="#start-campaign"
+          <button
+            onClick={onNavigateSearch}
             className="inline-flex items-center justify-center bg-white hover:bg-gray-100 text-gray-900 font-bold px-8 py-3.5 rounded-full transition-all duration-200 shadow-lg text-sm cursor-pointer"
           >
             Start your first campaign
-          </a>
+          </button>
         </div>
       </section>
     </div>

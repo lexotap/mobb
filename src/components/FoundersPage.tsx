@@ -13,10 +13,13 @@ import {
   DollarSign
 } from 'lucide-react';
 import { TrustedBrands } from './TrustedBrands';
+import { WhatBrandsSay } from './WhatBrandsSay';
 import {
   niloofarTaghaviImg,
   ivanaMarketinImg,
   kolapoImg,
+  janarJuhkovImg,
+  sofiaJensenImg,
 } from '../avatars';
 
 interface FoundersPageProps {
@@ -47,7 +50,7 @@ const darkSectionHeadingStyle: React.CSSProperties = {
   color: '#ffffff',
 };
 
-export const FoundersPage: React.FC<FoundersPageProps> = () => {
+export const FoundersPage: React.FC<FoundersPageProps> = ({ onNavigateHome, onNavigateSearch }) => {
   return (
     <div className="w-full bg-white text-gray-900 font-sans pb-24">
       
@@ -73,7 +76,7 @@ export const FoundersPage: React.FC<FoundersPageProps> = () => {
                 <span className="w-4 h-4 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0">
                   <Check className="w-2.5 h-2.5 stroke-[3]" />
                 </span>
-                1.1m+ vetted creators across Instagram, TikTok, and YouTube
+                500,000+ vetted creators across Instagram, TikTok, and YouTube
               </div>
 
               <div className="bg-gray-100/90 rounded-full px-3.5 py-1.5 text-xs font-medium text-gray-700 flex items-center gap-1.5">
@@ -93,20 +96,20 @@ export const FoundersPage: React.FC<FoundersPageProps> = () => {
 
             {/* Dual CTA Buttons */}
             <div className="flex items-center gap-3">
-              <a
-                href="#book-demo"
+              <button
+                onClick={onNavigateSearch}
                 className="inline-flex items-center gap-2 bg-[#22252a] hover:bg-black text-white px-7 py-3.5 rounded-xl font-bold text-sm transition-all duration-200 shadow-md hover:shadow-xl cursor-pointer group"
               >
                 Book a Demo
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-              </a>
+              </button>
 
-              <a
-                href="#start-free"
+              <button
+                onClick={onNavigateSearch}
                 className="inline-flex items-center justify-center bg-white border border-gray-300 hover:bg-gray-50 text-gray-900 px-7 py-3.5 rounded-xl font-bold text-sm transition-all duration-200 cursor-pointer"
               >
                 Start free
-              </a>
+              </button>
             </div>
           </div>
 
@@ -114,19 +117,19 @@ export const FoundersPage: React.FC<FoundersPageProps> = () => {
           <div className="lg:col-span-6 flex justify-center lg:justify-end">
             <div className="w-full max-w-[480px] h-[420px] sm:h-[460px] bg-[#22252a] rounded-[36px] p-6 sm:p-8 relative overflow-hidden flex items-center justify-center shadow-2xl">
               
-              {/* Creator Card 1 (Top Left Model B&W) */}
+              {/* Creator Card 1 (Top Left Model) */}
               <div className="absolute top-10 left-10 w-[200px] h-[220px] rounded-2xl overflow-hidden border-2 border-white/10 shadow-2xl">
                 <img
-                  src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=400"
+                  src={janarJuhkovImg}
                   alt="Creator 1"
-                  className="w-full h-full object-cover grayscale"
+                  className="w-full h-full object-cover"
                 />
               </div>
 
-              {/* Creator Card 2 (Bottom Right Model Warm Tone) */}
+              {/* Creator Card 2 (Bottom Right Model) */}
               <div className="absolute bottom-10 right-10 w-[200px] h-[220px] rounded-2xl overflow-hidden border-2 border-white/10 shadow-2xl">
                 <img
-                  src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400"
+                  src={sofiaJensenImg}
                   alt="Creator 2"
                   className="w-full h-full object-cover"
                 />
@@ -559,70 +562,10 @@ export const FoundersPage: React.FC<FoundersPageProps> = () => {
       </section>
 
       {/* ------------------------------------------------------------- */}
-      {/* SECTION 5: MANE THEORIE CASE STUDY BLOCK                      */}
+      {/* SECTION 5: WHAT BRANDS SAY                                    */}
       {/* ------------------------------------------------------------- */}
-      <section className="max-w-[1140px] mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="bg-gray-50 rounded-[32px] p-8 sm:p-12 border border-gray-200/60 shadow-xs">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            
-            {/* Mane Theorie Product Image Left */}
-            <div className="lg:col-span-4 flex justify-center">
-              <div className="w-full max-w-[280px] h-[240px] rounded-3xl overflow-hidden shadow-md">
-                <img
-                  src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&q=80&w=400"
-                  alt="Mane Theory Cosmetics"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-
-            {/* Testimonial Quote & Highlights Right */}
-            <div className="lg:col-span-8 flex flex-col items-start text-left">
-              <p className="text-gray-800 text-lg sm:text-xl font-medium leading-relaxed mb-6">
-                It helped us move faster, get better content, and learn what actually drives engagement and conversion.
-              </p>
-
-              {/* Checkmark List */}
-              <div className="space-y-3 mb-8">
-                <div className="flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-gray-700">
-                  <span className="w-4 h-4 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0">
-                    <Check className="w-2.5 h-2.5 stroke-[3]" />
-                  </span>
-                  25 creators hired - 25 pieces of content produced - zero manual outreach
-                </div>
-
-                <div className="flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-gray-700">
-                  <span className="w-4 h-4 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0">
-                    <Check className="w-2.5 h-2.5 stroke-[3]" />
-                  </span>
-                  Content deployed across organic channels and tested in paid ads
-                </div>
-
-                <div className="flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-gray-700">
-                  <span className="w-4 h-4 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0">
-                    <Check className="w-2.5 h-2.5 stroke-[3]" />
-                  </span>
-                  Clear performance data on what drives engagement and conversion
-                </div>
-              </div>
-
-              <div className="text-xs text-gray-500 font-medium mb-6">
-                CEO, <span className="font-bold text-gray-900">Mane Theory</span>
-                <br />
-                <span className="font-bold text-gray-900">Marsha Jean-Louis</span>
-              </div>
-
-              <a
-                href="#case-study"
-                className="inline-flex items-center gap-2 bg-[#22252a] hover:bg-black text-white px-6 py-3 rounded-xl font-bold text-xs transition-all shadow-xs cursor-pointer group"
-              >
-                View case study
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-              </a>
-            </div>
-
-          </div>
-        </div>
+      <section className="py-8">
+        <WhatBrandsSay />
       </section>
 
       {/* ------------------------------------------------------------- */}
@@ -645,50 +588,47 @@ export const FoundersPage: React.FC<FoundersPageProps> = () => {
               Less time on the process. More time on the brand.
             </div>
 
-            <a
-              href="#book-demo"
+            <button
+              onClick={onNavigateSearch}
               className="inline-flex items-center gap-2 bg-[#22252a] hover:bg-black text-white px-7 py-3.5 rounded-xl font-bold text-sm transition-all duration-200 shadow-md hover:shadow-xl cursor-pointer group"
             >
               Book a Demo
               <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-            </a>
+            </button>
           </div>
 
           {/* Right Card (Dark Dashboard Widget) */}
           <div className="lg:col-span-6 flex justify-center">
             <div className="w-full max-w-[480px] bg-[#22252a] text-white rounded-[32px] p-6 sm:p-8 space-y-6 shadow-2xl">
               
-              <div className="bg-[#2d3139] p-5 rounded-2xl space-y-4">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
-                    <span className="font-extrabold text-xs">Discovery</span>
-                  </div>
-                  <span className="text-[10px] text-gray-400">This week</span>
-                  <span className="text-[10px] bg-emerald-900/80 text-emerald-300 font-bold px-2 py-0.5 rounded-full">
-                    • One account
-                  </span>
+              <div className="flex items-center justify-between border-b border-gray-800 pb-4">
+                <div>
+                  <div className="text-xs text-gray-400 font-bold uppercase tracking-wider">Active Collaborations</div>
+                  <div className="text-2xl font-black text-white mt-0.5">14 creators</div>
                 </div>
+                <span className="bg-emerald-500/20 text-emerald-400 text-xs font-bold px-2.5 py-1 rounded-full border border-emerald-500/30">
+                  ● Live Pipeline
+                </span>
+              </div>
 
-                <div className="grid grid-cols-2 gap-3 pt-1">
-                  <div className="bg-[#22252a] p-3 rounded-xl">
-                    <div className="text-[10px] text-gray-400">LIVE ORDERS</div>
-                    <div className="text-xl font-black text-white">6</div>
-                  </div>
-                  <div className="bg-[#22252a] p-3 rounded-xl">
-                    <div className="text-[10px] text-gray-400">IMPRESSIONS</div>
-                    <div className="text-xl font-black text-white">2.1M</div>
-                  </div>
+              {/* Status List */}
+              <div className="space-y-3">
+                <div className="flex items-center justify-between text-xs bg-white/5 p-3 rounded-xl">
+                  <span className="text-gray-300 font-medium">Briefs Dispatched</span>
+                  <span className="font-bold text-white">14 / 14</span>
                 </div>
+                <div className="flex items-center justify-between text-xs bg-white/5 p-3 rounded-xl">
+                  <span className="text-gray-300 font-medium">Content Under Review</span>
+                  <span className="font-bold text-amber-400">3 Pending</span>
+                </div>
+                <div className="flex items-center justify-between text-xs bg-white/5 p-3 rounded-xl">
+                  <span className="text-gray-300 font-medium">Approved & Paid</span>
+                  <span className="font-bold text-emerald-400">11 Completed</span>
+                </div>
+              </div>
 
-                <div className="space-y-2 pt-2">
-                  <div className="w-full h-2 bg-gray-700 rounded-full overflow-hidden">
-                    <div className="w-4/5 h-full bg-rose-400"></div>
-                  </div>
-                  <div className="w-full h-2 bg-gray-700 rounded-full overflow-hidden">
-                    <div className="w-3/5 h-full bg-rose-500"></div>
-                  </div>
-                </div>
+              <div className="pt-2 text-center text-xs text-gray-400">
+                Total Team Headcount: <strong className="text-white">1 Founder</strong>
               </div>
 
             </div>
@@ -704,26 +644,27 @@ export const FoundersPage: React.FC<FoundersPageProps> = () => {
         <div className="bg-[#22252a] rounded-[32px] sm:rounded-[40px] p-8 sm:p-12 lg:p-16 text-center text-white shadow-2xl relative overflow-hidden">
           
           <h2 style={darkSectionHeadingStyle} className="max-w-2xl mx-auto mb-4 tracking-tight">
-            Start your creator program today. No team required.
+            Stop juggling tools. Start scaling your creator collaborations.
           </h2>
 
-          <p className="text-gray-400 text-sm sm:text-base max-w-xl mx-auto mb-8 leading-relaxed">
-            Sign up free and get access to 1.1m+ vetted creators, transparent pricing, and everything you need to run your first campaign, without an agency, a team, or a complicated setup.
+          <p className="text-gray-400 text-sm sm:text-base max-w-xl mx-auto mb-8 leading-relaxed font-normal">
+            Find vetted creators, run end-to-end campaigns, and pay worldwide, all from a single dashboard built for growing brands.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-            <a
-              href="#book-demo"
-              className="w-full sm:w-auto inline-flex items-center justify-center bg-white hover:bg-gray-100 text-gray-900 font-bold px-8 py-3.5 rounded-xl transition-all duration-200 shadow-lg text-sm cursor-pointer"
+          <div className="flex items-center justify-center gap-3">
+            <button
+              onClick={onNavigateSearch}
+              className="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-gray-900 font-bold px-7 py-3.5 rounded-xl transition-all duration-200 shadow-lg text-sm cursor-pointer group"
             >
               Book a Demo
-            </a>
-            <a
-              href="#start-free"
-              className="w-full sm:w-auto inline-flex items-center justify-center bg-transparent border border-gray-600 hover:bg-gray-800 text-white font-bold px-8 py-3.5 rounded-xl transition-all duration-200 text-sm cursor-pointer"
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+            </button>
+            <button
+              onClick={onNavigateSearch}
+              className="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 text-white font-bold px-7 py-3.5 rounded-xl transition-all duration-200 text-sm border border-white/20 cursor-pointer"
             >
               Start free
-            </a>
+            </button>
           </div>
         </div>
       </section>

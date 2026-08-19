@@ -3,8 +3,13 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ChevronLeft, ChevronRight, ArrowUpRight } from 'lucide-react';
 import {
   marriottBonvoyImg,
+  theDorianInsideCoverImg,
   milleInsideCoverImg,
+  porscheInsideCoverImg,
+  orakiInsideCoverImg,
+  snagTightsInsideCoverImg,
   omnipetInsideCoverImg,
+  bakesyInsideCoverImg,
 } from '../casestudies';
 
 interface CaseStudySlide {
@@ -43,6 +48,98 @@ const CASE_STUDIES: CaseStudySlide[] = [
     authorTitle: 'Director Content Marketing, EMEA @ Marriott',
   },
   {
+    id: 'porsche',
+    brandName: 'Porsche Design',
+    mediaType: 'image',
+    mediaContent: (
+      <div className="relative w-full h-full">
+        <img
+          src={porscheInsideCoverImg}
+          alt="Porsche Design Luxury Campaign"
+          className="w-full h-full object-cover object-center"
+        />
+        {/* Badge */}
+        <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-md text-white text-[10px] px-2.5 py-1 rounded-full font-medium flex items-center gap-1.5 border border-white/20">
+          <span className="w-2 h-2 rounded-full bg-rose-500 animate-pulse" />
+          Porsche Luxury Campaign
+        </div>
+      </div>
+    ),
+    quote:
+      '“Mobb allowed us to partner with high-calibre automotive and luxury creators across Europe, driving millions of high-intent impressions with flawless execution and content safety.”',
+    authorName: 'Head of Brand Partnerships',
+    authorTitle: 'Porsche Design',
+  },
+  {
+    id: 'oraki',
+    brandName: 'ORAKI',
+    mediaType: 'image',
+    mediaContent: (
+      <div className="relative w-full h-full">
+        <img
+          src={orakiInsideCoverImg}
+          alt="ORAKI DTC Campaign"
+          className="w-full h-full object-cover object-center"
+        />
+        {/* Badge */}
+        <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-md text-white text-[10px] px-2.5 py-1 rounded-full font-medium flex items-center gap-1.5 border border-white/20">
+          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+          ORAKI UGC Ads
+        </div>
+      </div>
+    ),
+    quote:
+      '“Mobb’s vetted creator pipeline transformed our DTC video ads, scaling our ROAS to 4.8x and delivering high-converting UGC on demand without manual outreach friction.”',
+    authorName: 'Founder & CEO',
+    authorTitle: 'ORAKI Sustainable Apparel',
+  },
+  {
+    id: 'the-dorian',
+    brandName: 'The Dorian, Autograph Collection',
+    mediaType: 'image',
+    mediaContent: (
+      <div className="relative w-full h-full">
+        <img
+          src={theDorianInsideCoverImg}
+          alt="The Dorian Hotel Launch"
+          className="w-full h-full object-cover object-center"
+        />
+        {/* Badge */}
+        <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-md text-white text-[10px] px-2.5 py-1 rounded-full font-medium flex items-center gap-1.5 border border-white/20">
+          <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+          The Dorian Hotel
+        </div>
+      </div>
+    ),
+    quote:
+      '“Working with Mobb helped us generate hundreds of pieces of gorgeous hospitality content and reach over 2.4M targeted travelers across North America seamlessly.”',
+    authorName: 'Director of Marketing',
+    authorTitle: 'The Dorian, Autograph Collection',
+  },
+  {
+    id: 'snag',
+    brandName: 'Snag Tights',
+    mediaType: 'image',
+    mediaContent: (
+      <div className="relative w-full h-full">
+        <img
+          src={snagTightsInsideCoverImg}
+          alt="Snag Tights Global Campaign"
+          className="w-full h-full object-cover object-center"
+        />
+        {/* Badge */}
+        <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-md text-white text-[10px] px-2.5 py-1 rounded-full font-medium flex items-center gap-1.5 border border-white/20">
+          <span className="w-2 h-2 rounded-full bg-purple-500 animate-pulse" />
+          Snag Inclusive UGC
+        </div>
+      </div>
+    ),
+    quote:
+      '“The diversity and authenticity of creators on Mobb allowed us to launch multi-region body-positive campaigns with zero operational overhead and record engagement.”',
+    authorName: 'Head of Growth',
+    authorTitle: 'Snag Tights',
+  },
+  {
     id: 'mille',
     brandName: 'Mille Restaurant & Cafe',
     mediaType: 'image',
@@ -61,9 +158,32 @@ const CASE_STUDIES: CaseStudySlide[] = [
       </div>
     ),
     quote:
-      '“Bujou Studio turned our restaurant launch into a cultural event. Their PR, photography, and influencer strategy filled our tables from day one and tripled our revenue expectations.”',
+      '“Mobb turned our restaurant launch into a cultural event. Their PR, photography, and influencer strategy filled our tables from day one and tripled our revenue expectations.”',
     authorName: 'Managing Partner',
     authorTitle: 'Mille Restaurant & Cafe',
+  },
+  {
+    id: 'bakesy',
+    brandName: 'Bakesy App',
+    mediaType: 'image',
+    mediaContent: (
+      <div className="relative w-full h-full">
+        <img
+          src={bakesyInsideCoverImg}
+          alt="Bakesy App Creator Campaign"
+          className="w-full h-full object-cover object-center"
+        />
+        {/* Badge */}
+        <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-md text-white text-[10px] px-2.5 py-1 rounded-full font-medium flex items-center gap-1.5 border border-white/20">
+          <span className="w-2 h-2 rounded-full bg-pink-500 animate-pulse" />
+          Bakesy App Growth
+        </div>
+      </div>
+    ),
+    quote:
+      '“Mobb drove explosive app downloads and creator-led signups through hyper-targeted food and bakery influencer collaborations that resonated authentically.”',
+    authorName: 'Co-Founder',
+    authorTitle: 'Bakesy App',
   },
   {
     id: 'omni',
@@ -84,13 +204,17 @@ const CASE_STUDIES: CaseStudySlide[] = [
       </div>
     ),
     quote:
-      '“Favoured transformed our subscriber journey from initial curiosity into long-term customer loyalty. The 4.2x LTV growth accelerated our expansion.”',
+      '“Mobb transformed our subscriber journey from initial curiosity into long-term customer loyalty. The 4.2x LTV growth accelerated our expansion.”',
     authorName: 'Co-Founder & CEO',
     authorTitle: 'Omni Pet',
   },
 ];
 
-export function WhatBrandsSay() {
+interface WhatBrandsSayProps {
+  onNavigate?: (page: 'home' | 'search-creators' | 'creator-chat' | 'performance-tracking' | 'campaign-briefs' | 'secure-global-payments' | 'team-workspace' | 'bring-manage-creators' | 'marketing-teams' | 'agencies' | 'founders' | 'ugc-for-ads' | 'influencer-marketing' | 'affiliate-marketing' | 'pricing' | 'for-creators' | 'case-studies') => void;
+}
+
+export function WhatBrandsSay({ onNavigate }: WhatBrandsSayProps) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handleNext = () => {
@@ -155,13 +279,20 @@ export function WhatBrandsSay() {
 
                 {/* CTA Button */}
                 <div className="mt-6">
-                  <a
-                    href="#case-study"
-                    className="bg-[#2B2B2B] hover:bg-black text-white text-xs sm:text-sm px-5 py-2.5 rounded-xl font-medium inline-flex items-center gap-2 transition-all shadow-xs active:scale-95"
+                  <button
+                    onClick={() => {
+                      if (onNavigate) {
+                        onNavigate('case-studies');
+                      } else {
+                        window.location.hash = '#case-studies';
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                      }
+                    }}
+                    className="bg-[#2B2B2B] hover:bg-black text-white text-xs sm:text-sm px-5 py-2.5 rounded-xl font-medium inline-flex items-center gap-2 transition-all shadow-xs active:scale-95 cursor-pointer"
                   >
                     <ArrowUpRight className="w-4 h-4" />
                     <span>View Case Study</span>
-                  </a>
+                  </button>
                 </div>
 
               </div>

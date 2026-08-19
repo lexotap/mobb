@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Creator } from './types';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
@@ -45,6 +45,38 @@ export default function App() {
     mode: 'signup',
   });
 
+  // Sync hash routing
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '');
+      const validPages = [
+        'search-creators', 'creator-chat', 'performance-tracking', 'campaign-briefs',
+        'secure-global-payments', 'team-workspace', 'bring-manage-creators', 'marketing-teams',
+        'agencies', 'founders', 'ugc-for-ads', 'influencer-marketing', 'affiliate-marketing',
+        'pricing', 'for-creators', 'case-studies'
+      ];
+      if (validPages.includes(hash)) {
+        setCurrentPage(hash as any);
+      } else if (!hash || hash === 'home') {
+        setCurrentPage('home');
+      }
+    };
+
+    handleHashChange();
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  const navigateTo = (page: typeof currentPage) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (page === 'home') {
+      window.history.pushState(null, '', window.location.pathname);
+    } else {
+      window.history.pushState(null, '', `#${page}`);
+    }
+  };
+
   const handleOpenSignUp = (role: 'creator' | 'brand' = 'creator') => {
     setAuthModal({ isOpen: true, role, mode: 'signup' });
   };
@@ -67,7 +99,7 @@ export default function App() {
       {/* Top Navigation */}
       <Header
         currentPage={currentPage}
-        onNavigate={setCurrentPage}
+        onNavigate={navigateTo}
         onOpenSignUp={handleOpenSignUp}
         onOpenLogin={handleOpenLogin}
       />
@@ -76,75 +108,75 @@ export default function App() {
       <main>
         {currentPage === 'case-studies' ? (
           <CaseStudiesPage
-            onNavigateHome={() => setCurrentPage('home')}
-            onNavigateSearch={() => setCurrentPage('search-creators')}
+            onNavigateHome={() => navigateTo('home')}
+            onNavigateSearch={() => navigateTo('search-creators')}
           />
         ) : currentPage === 'for-creators' ? (
           <ForCreatorsPage
-            onNavigateHome={() => setCurrentPage('home')}
-            onNavigateSearch={() => setCurrentPage('search-creators')}
+            onNavigateHome={() => navigateTo('home')}
+            onNavigateSearch={() => navigateTo('search-creators')}
             onOpenSignUp={handleOpenSignUp}
           />
         ) : currentPage === 'pricing' ? (
           <PricingPage
-            onNavigateHome={() => setCurrentPage('home')}
-            onNavigateSearch={() => setCurrentPage('search-creators')}
-            onNavigateCaseStudies={() => setCurrentPage('case-studies')}
+            onNavigateHome={() => navigateTo('home')}
+            onNavigateSearch={() => navigateTo('search-creators')}
+            onNavigateCaseStudies={() => navigateTo('case-studies')}
           />
         ) : currentPage === 'affiliate-marketing' ? (
           <AffiliateMarketingPage
-            onNavigateHome={() => setCurrentPage('home')}
-            onNavigateSearch={() => setCurrentPage('search-creators')}
+            onNavigateHome={() => navigateTo('home')}
+            onNavigateSearch={() => navigateTo('search-creators')}
           />
         ) : currentPage === 'influencer-marketing' ? (
           <InfluencerMarketingPage
-            onNavigateHome={() => setCurrentPage('home')}
-            onNavigateSearch={() => setCurrentPage('search-creators')}
+            onNavigateHome={() => navigateTo('home')}
+            onNavigateSearch={() => navigateTo('search-creators')}
           />
         ) : currentPage === 'ugc-for-ads' ? (
           <UgcForAdsPage
-            onNavigateHome={() => setCurrentPage('home')}
-            onNavigateSearch={() => setCurrentPage('search-creators')}
+            onNavigateHome={() => navigateTo('home')}
+            onNavigateSearch={() => navigateTo('search-creators')}
           />
         ) : currentPage === 'founders' ? (
           <FoundersPage
-            onNavigateHome={() => setCurrentPage('home')}
-            onNavigateSearch={() => setCurrentPage('search-creators')}
+            onNavigateHome={() => navigateTo('home')}
+            onNavigateSearch={() => navigateTo('search-creators')}
           />
         ) : currentPage === 'agencies' ? (
           <AgenciesPage
-            onNavigateHome={() => setCurrentPage('home')}
-            onNavigateSearch={() => setCurrentPage('search-creators')}
+            onNavigateHome={() => navigateTo('home')}
+            onNavigateSearch={() => navigateTo('search-creators')}
           />
         ) : currentPage === 'marketing-teams' ? (
           <MarketingTeamsPage
-            onNavigateHome={() => setCurrentPage('home')}
-            onNavigateSearch={() => setCurrentPage('search-creators')}
+            onNavigateHome={() => navigateTo('home')}
+            onNavigateSearch={() => navigateTo('search-creators')}
           />
         ) : currentPage === 'bring-manage-creators' ? (
           <BringManageCreatorsPage
-            onNavigateHome={() => setCurrentPage('home')}
-            onNavigateSearch={() => setCurrentPage('search-creators')}
+            onNavigateHome={() => navigateTo('home')}
+            onNavigateSearch={() => navigateTo('search-creators')}
           />
         ) : currentPage === 'team-workspace' ? (
           <TeamWorkspacePage
-            onNavigateHome={() => setCurrentPage('home')}
-            onNavigateSearch={() => setCurrentPage('search-creators')}
+            onNavigateHome={() => navigateTo('home')}
+            onNavigateSearch={() => navigateTo('search-creators')}
           />
         ) : currentPage === 'secure-global-payments' ? (
           <SecureGlobalPaymentsPage
-            onNavigateHome={() => setCurrentPage('home')}
-            onNavigateSearch={() => setCurrentPage('search-creators')}
+            onNavigateHome={() => navigateTo('home')}
+            onNavigateSearch={() => navigateTo('search-creators')}
           />
         ) : currentPage === 'campaign-briefs' ? (
           <CampaignBriefsPage
-            onNavigateHome={() => setCurrentPage('home')}
-            onNavigateSearch={() => setCurrentPage('search-creators')}
+            onNavigateHome={() => navigateTo('home')}
+            onNavigateSearch={() => navigateTo('search-creators')}
           />
         ) : currentPage === 'performance-tracking' ? (
-          <PerformanceTrackingPage onNavigateHome={() => setCurrentPage('home')} />
+          <PerformanceTrackingPage onNavigateHome={() => navigateTo('home')} />
         ) : currentPage === 'creator-chat' ? (
-          <CreatorChatPage onNavigateHome={() => setCurrentPage('home')} />
+          <CreatorChatPage onNavigateHome={() => navigateTo('home')} />
         ) : currentPage === 'search-creators' ? (
           <SearchCreatorsPage
             onSelectCreator={handleCardClick}
@@ -152,21 +184,21 @@ export default function App() {
           />
         ) : (
           <>
-            <Hero onSelectCreator={handleCardClick} />
+            <Hero onSelectCreator={handleCardClick} onOpenSignUp={handleOpenSignUp} />
             <TrustedBrands />
             <WorkflowSection />
             <StatsSection />
-            <PlatformHighlightCard />
+            <PlatformHighlightCard onNavigate={navigateTo} onOpenSignUp={handleOpenSignUp} />
             <TimeSavingsCard />
-            <WhatBrandsSay />
-            <TeamsSection />
-            <CtaSection />
+            <WhatBrandsSay onNavigate={navigateTo} />
+            <TeamsSection onNavigate={navigateTo} onOpenSignUp={handleOpenSignUp} />
+            <CtaSection onNavigate={navigateTo} />
           </>
         )}
       </main>
 
       {/* Footer Section */}
-      <Footer />
+      <Footer onNavigate={navigateTo} onOpenSignUp={handleOpenSignUp} />
 
       {/* Pop-up Modal for Creator Profile Details */}
       <CreatorModal

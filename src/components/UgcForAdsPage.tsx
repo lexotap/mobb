@@ -16,6 +16,7 @@ import {
   Briefcase
 } from 'lucide-react';
 import { TrustedBrands } from './TrustedBrands';
+import { WhatBrandsSay } from './WhatBrandsSay';
 import {
   sofiaJensenImg,
   renateReinsveImg,
@@ -57,7 +58,7 @@ const darkSectionHeadingStyle: React.CSSProperties = {
   color: '#ffffff',
 };
 
-export const UgcForAdsPage: React.FC<UgcForAdsPageProps> = () => {
+export const UgcForAdsPage: React.FC<UgcForAdsPageProps> = ({ onNavigateHome, onNavigateSearch }) => {
   const [activeTab, setActiveTab] = useState<number>(1);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
@@ -66,7 +67,7 @@ export const UgcForAdsPage: React.FC<UgcForAdsPageProps> = () => {
   };
 
   const toolsTabs = [
-    { id: 1, label: '01 Creator Discovery', title: 'Find the Right Creator before You Commit', description: 'Search 1.1m+ vetted Creators by platform, niche, audience, and budget. See verified engagement rates and demographics before you commit. Spend less time searching and more time running campaigns.', pills: ['Vetted creators', 'Detailed audience demographics', 'Free to search'] },
+    { id: 1, label: '01 Creator Discovery', title: 'Find the Right Creator before You Commit', description: 'Search 500,000+ vetted Creators by platform, niche, audience, and budget. See verified engagement rates and demographics before you commit. Spend less time searching and more time running campaigns.', pills: ['Vetted creators', 'Detailed audience demographics', 'Free to search'] },
     { id: 2, label: '02 AI Campaign Briefs', title: 'AI-Powered Campaign Brief Generator', description: 'Generate clear, ad-ready deliverable guidelines in seconds. Include hooks, visual guidelines, raw file formats, and brand guardrails without writing from scratch.', pills: ['Instant AI briefs', 'Raw file specs', 'Custom hooks'] },
     { id: 3, label: '03 Order Management', title: 'Track Submissions & Revisions in One Place', description: 'Review video submissions directly in your browser. Request edits or accept content with a single click. Maintain a central hub for all raw and edited assets.', pills: ['In-browser review', 'Unlimited revisions', 'Asset library'] },
     { id: 4, label: '04 Global Payments', title: 'Escrow Protection & Automated Invoicing', description: 'Hold payments safely until content is approved. Automatically generate tax forms, multi-currency invoices, and receipts for your finance team.', pills: ['Escrow protection', 'Multi-currency', 'Automated receipts'] },
@@ -123,7 +124,7 @@ export const UgcForAdsPage: React.FC<UgcForAdsPageProps> = () => {
                 <span className="w-4 h-4 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0">
                   <Check className="w-2.5 h-2.5 stroke-[3]" />
                 </span>
-                1.1m+ vetted creators
+                500,000+ vetted creators
               </div>
 
               <div className="bg-gray-100/90 rounded-full px-3.5 py-1.5 text-xs font-medium text-gray-700 flex items-center gap-1.5">
@@ -142,13 +143,13 @@ export const UgcForAdsPage: React.FC<UgcForAdsPageProps> = () => {
             </div>
 
             {/* CTA Button */}
-            <a
-              href="#start-free"
+            <button
+              onClick={onNavigateSearch}
               className="inline-flex items-center gap-2 bg-[#22252a] hover:bg-black text-white px-8 py-3.5 rounded-xl font-bold text-sm transition-all duration-200 shadow-md hover:shadow-xl cursor-pointer group"
             >
               Start free
               <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-            </a>
+            </button>
           </div>
 
           {/* Right Hero Graphic - Dark Canvas with Floating Pills */}
@@ -426,68 +427,10 @@ export const UgcForAdsPage: React.FC<UgcForAdsPageProps> = () => {
       </section>
 
       {/* ------------------------------------------------------------- */}
-      {/* SECTION 6: TESTIMONIAL BLOCK (AVERY)                           */}
+      {/* SECTION 6: WHAT BRANDS SAY                                    */}
       {/* ------------------------------------------------------------- */}
-      <section className="max-w-[1140px] mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="bg-gray-50 rounded-[32px] p-8 sm:p-12 border border-gray-200/60 shadow-xs">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-
-            {/* Logo Left */}
-            <div className="lg:col-span-4 flex justify-center">
-              <div className="w-full max-w-[260px] h-[200px] bg-white rounded-3xl border border-gray-200 flex items-center justify-center shadow-md p-6">
-                <span className="text-3xl font-black text-[#f43f5e] tracking-widest uppercase">
-                  AVERY
-                </span>
-              </div>
-            </div>
-
-            {/* Testimonial Quote Right */}
-            <div className="lg:col-span-8 flex flex-col items-start text-left">
-              <p className="text-gray-800 text-lg sm:text-xl font-medium leading-relaxed mb-6">
-                "The quality of creators we find on Mobb is significantly higher than what we get from native platform programs or other UGC channels. The vetting process makes a real difference."
-              </p>
-
-              {/* Checkmarks */}
-              <div className="space-y-2.5 mb-6">
-                <div className="flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-gray-700">
-                  <span className="w-4 h-4 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0">
-                    <Check className="w-2.5 h-2.5 stroke-[3]" />
-                  </span>
-                  Higher-quality creator content
-                </div>
-
-                <div className="flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-gray-700">
-                  <span className="w-4 h-4 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0">
-                    <Check className="w-2.5 h-2.5 stroke-[3]" />
-                  </span>
-                  Creators personally vetted before you see them
-                </div>
-
-                <div className="flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-gray-700">
-                  <span className="w-4 h-4 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0">
-                    <Check className="w-2.5 h-2.5 stroke-[3]" />
-                  </span>
-                  Structured search replaces unsolicited DM outreach
-                </div>
-              </div>
-
-              <div className="text-xs text-gray-500 font-medium mb-6">
-                Social Media Team
-                <br />
-                <span className="font-bold text-gray-900">Avery</span>
-              </div>
-
-              <a
-                href="#case-study"
-                className="inline-flex items-center gap-2 bg-[#22252a] hover:bg-black text-white px-6 py-3 rounded-xl font-bold text-xs transition-all shadow-xs cursor-pointer group"
-              >
-                View case study
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-              </a>
-            </div>
-
-          </div>
-        </div>
+      <section className="py-8">
+        <WhatBrandsSay />
       </section>
 
       {/* ------------------------------------------------------------- */}
@@ -599,13 +542,13 @@ export const UgcForAdsPage: React.FC<UgcForAdsPageProps> = () => {
         </div>
 
         <div className="flex justify-center">
-          <a
-            href="#start-free"
+          <button
+            onClick={onNavigateSearch}
             className="inline-flex items-center gap-2 bg-[#22252a] hover:bg-black text-white px-8 py-3.5 rounded-xl font-bold text-sm transition-all duration-200 shadow-md cursor-pointer group"
           >
             Start free
             <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-          </a>
+          </button>
         </div>
       </section>
 
@@ -642,7 +585,7 @@ export const UgcForAdsPage: React.FC<UgcForAdsPageProps> = () => {
         </div>
 
         <div className="text-center mt-12 text-xs text-gray-500 font-medium">
-          Have another question? <a href="#contact" className="text-gray-900 font-bold underline">Contact sales →</a>
+          Have another question? <button onClick={onNavigateSearch} className="text-gray-900 font-bold underline cursor-pointer">Contact sales →</button>
         </div>
       </section>
 
@@ -661,12 +604,12 @@ export const UgcForAdsPage: React.FC<UgcForAdsPageProps> = () => {
           </p>
 
           <div className="flex justify-center">
-            <a
-              href="#start-free"
+            <button
+              onClick={onNavigateSearch}
               className="inline-flex items-center justify-center bg-white hover:bg-gray-100 text-gray-900 font-bold px-8 py-3.5 rounded-xl transition-all duration-200 shadow-lg text-sm cursor-pointer"
             >
               Start free
-            </a>
+            </button>
           </div>
         </div>
       </section>

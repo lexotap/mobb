@@ -59,7 +59,7 @@ export const CreatorCard: React.FC<CreatorCardProps> = ({ creator, onClick }) =>
   return (
     <div
       onClick={() => onClick(creator)}
-      className="group relative rounded-2xl overflow-hidden aspect-[3/4] bg-gray-900 border border-gray-800/80 shadow-xl cursor-pointer transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:border-pink-500/40 flex flex-col justify-between p-3.5 select-none"
+      className="group relative rounded-2xl overflow-hidden aspect-[1/1.08] bg-gray-900 border border-gray-800/80 shadow-xl cursor-pointer transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:border-pink-500/40 flex flex-col justify-between p-3.5 select-none"
     >
       {/* Background Image */}
       <img
@@ -80,20 +80,20 @@ export const CreatorCard: React.FC<CreatorCardProps> = ({ creator, onClick }) =>
         </div>
 
         {creator.verified && (
-          <div className="bg-pink-500/90 backdrop-blur-md px-2 py-0.5 rounded-full text-[10px] uppercase font-bold text-white tracking-wider">
+          <div className="badge-pro backdrop-blur-md px-2 py-0.5 rounded-full text-[9px] uppercase font-bold tracking-wider shadow-sm">
             PRO
           </div>
         )}
       </div>
 
-      {/* Animated Floating Customer Review Badges Overlay (emerging right above name, fading out in middle) */}
-      <div className="absolute left-3.5 right-3.5 bottom-16 h-36 z-20 pointer-events-none overflow-hidden">
+      {/* Animated Floating Customer Review Badges Overlay */}
+      <div className="absolute left-3 right-3 bottom-14 h-24 z-20 pointer-events-none overflow-hidden">
         {reviews.map((review, idx) => {
           const delay = cardStagger + idx * 2;
           return (
             <div
               key={idx}
-              className="absolute bottom-0 left-0 bg-black/80 backdrop-blur-md border border-white/20 rounded-full px-2.5 py-1 text-white shadow-xl flex items-center gap-2 max-w-[88%] animate-float-review"
+              className="absolute bottom-0 left-0 bg-black/80 backdrop-blur-md border border-white/20 rounded-full px-2.5 py-1 text-white shadow-xl flex items-center gap-1.5 max-w-[90%] animate-float-review"
               style={{
                 animationDuration: `${cycleDuration}s`,
                 animationDelay: `${delay}s`,
@@ -102,9 +102,9 @@ export const CreatorCard: React.FC<CreatorCardProps> = ({ creator, onClick }) =>
               <img
                 src={review.avatar}
                 alt="Reviewer"
-                className="w-4 h-4 sm:w-5 sm:h-5 rounded-full object-cover shrink-0 ring-1 ring-white/50"
+                className="w-4 h-4 rounded-full object-cover shrink-0 ring-1 ring-white/50"
               />
-              <span className="text-[10px] sm:text-[11px] font-medium text-gray-100 truncate tracking-tight">
+              <span className="text-[10px] sm:text-[10.5px] font-medium text-gray-100 truncate tracking-tight">
                 "{review.comment}"
               </span>
             </div>
@@ -115,15 +115,15 @@ export const CreatorCard: React.FC<CreatorCardProps> = ({ creator, onClick }) =>
       {/* Bottom Info Overlay */}
       <div className="relative z-10 text-white mt-auto">
         <div className="flex items-end justify-between gap-2 mb-0.5">
-          <div>
-            <h3 className="font-bold text-sm sm:text-base text-white leading-tight drop-shadow-sm group-hover:text-pink-200 transition-colors">
+          <div className="min-w-0 flex-1">
+            <h3 className="font-bold text-xs sm:text-sm text-white leading-tight drop-shadow-sm group-hover:text-pink-200 transition-colors truncate">
               {creator.name}
             </h3>
-            <p className="text-[11px] text-gray-300 font-normal truncate mt-0.5 drop-shadow-sm">
+            <p className="text-[10px] sm:text-[11px] text-gray-300 font-normal truncate mt-0.5 drop-shadow-sm">
               {creator.tags.join(', ')}
             </p>
           </div>
-          <span className="font-bold text-sm sm:text-base text-white tracking-tight shrink-0">
+          <span className="font-bold text-xs sm:text-sm text-white tracking-tight shrink-0">
             ${creator.startingPrice}
           </span>
         </div>

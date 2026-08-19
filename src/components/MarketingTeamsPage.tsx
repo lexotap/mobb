@@ -17,12 +17,15 @@ import {
   DollarSign
 } from 'lucide-react';
 import { TrustedBrands } from './TrustedBrands';
+import { WhatBrandsSay } from './WhatBrandsSay';
 import {
   ivanaMarketinImg,
   oliviaPezzenteImg,
   marimiqadzzeImg,
   niloofarTaghaviImg,
   alicjaWerniewiczImg,
+  luiseBlumstengelImg,
+  outOfAlexCamImg,
 } from '../avatars';
 
 interface MarketingTeamsPageProps {
@@ -53,7 +56,7 @@ const darkSectionHeadingStyle: React.CSSProperties = {
   color: '#ffffff',
 };
 
-export const MarketingTeamsPage: React.FC<MarketingTeamsPageProps> = () => {
+export const MarketingTeamsPage: React.FC<MarketingTeamsPageProps> = ({ onNavigateHome, onNavigateSearch }) => {
   return (
     <div className="w-full bg-white text-gray-900 font-sans pb-24">
       
@@ -79,7 +82,7 @@ export const MarketingTeamsPage: React.FC<MarketingTeamsPageProps> = () => {
                 <span className="w-4 h-4 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0">
                   <Check className="w-2.5 h-2.5 stroke-[3]" />
                 </span>
-                1.1m+ vetted creators across Instagram, TikTok, and YouTube
+                500,000+ vetted creators across Instagram, TikTok, and YouTube
               </div>
 
               <div className="bg-gray-100/90 rounded-full px-3.5 py-1.5 text-xs font-medium text-gray-700 flex items-center gap-1.5">
@@ -99,20 +102,20 @@ export const MarketingTeamsPage: React.FC<MarketingTeamsPageProps> = () => {
 
             {/* Dual CTA Buttons */}
             <div className="flex items-center gap-3">
-              <a
-                href="#book-demo"
+              <button
+                onClick={onNavigateSearch}
                 className="inline-flex items-center gap-2 bg-[#22252a] hover:bg-black text-white px-7 py-3.5 rounded-xl font-bold text-sm transition-all duration-200 shadow-md hover:shadow-xl cursor-pointer group"
               >
                 Book a Demo
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-              </a>
+              </button>
 
-              <a
-                href="#start-free"
+              <button
+                onClick={onNavigateSearch}
                 className="inline-flex items-center justify-center bg-white border border-gray-300 hover:bg-gray-50 text-gray-900 px-7 py-3.5 rounded-xl font-bold text-sm transition-all duration-200 cursor-pointer"
               >
                 Start free
-              </a>
+              </button>
             </div>
           </div>
 
@@ -123,7 +126,7 @@ export const MarketingTeamsPage: React.FC<MarketingTeamsPageProps> = () => {
               {/* Creator Card 1 (Top Left Model) */}
               <div className="absolute top-8 left-8 w-[200px] h-[220px] rounded-2xl overflow-hidden border-2 border-white/10 shadow-2xl">
                 <img
-                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400"
+                  src={luiseBlumstengelImg}
                   alt="Creator 1"
                   className="w-full h-full object-cover"
                 />
@@ -132,9 +135,9 @@ export const MarketingTeamsPage: React.FC<MarketingTeamsPageProps> = () => {
               {/* Creator Card 2 (Bottom Right Model B&W style) */}
               <div className="absolute bottom-8 right-8 w-[200px] h-[220px] rounded-2xl overflow-hidden border-2 border-white/10 shadow-2xl">
                 <img
-                  src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=400"
+                  src={outOfAlexCamImg}
                   alt="Creator 2"
-                  className="w-full h-full object-cover grayscale"
+                  className="w-full h-full object-cover"
                 />
               </div>
 
@@ -560,69 +563,10 @@ export const MarketingTeamsPage: React.FC<MarketingTeamsPageProps> = () => {
       </section>
 
       {/* ------------------------------------------------------------- */}
-      {/* SECTION 5: MANE THEORIE CASE STUDY BLOCK                      */}
+      {/* SECTION 5: WHAT BRANDS SAY                                    */}
       {/* ------------------------------------------------------------- */}
-      <section className="max-w-[1140px] mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="bg-gray-50 rounded-[32px] p-8 sm:p-12 border border-gray-200/60 shadow-xs">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            
-            {/* Mane Theorie Logo / Graphic Left */}
-            <div className="lg:col-span-4 flex justify-center">
-              <div className="w-full max-w-[280px] bg-amber-50/60 rounded-3xl p-8 flex flex-col items-center justify-center border border-amber-100 text-center">
-                <div className="font-serif italic font-bold text-3xl text-amber-900 mb-1 tracking-wider">
-                  m
-                </div>
-                <div className="font-extrabold text-xs tracking-widest uppercase text-amber-900 border-t border-amber-200 pt-1 mt-1 w-full text-center">
-                  MANE THEORY
-                </div>
-              </div>
-            </div>
-
-            {/* Testimonial Quote & Highlights Right */}
-            <div className="lg:col-span-8 flex flex-col items-start text-left">
-              <p className="text-gray-800 text-lg sm:text-xl font-medium leading-relaxed mb-6">
-                "It helped us move faster, get better content, and learn what actually drives engagement and conversion."
-              </p>
-
-              {/* Checkmark List */}
-              <div className="space-y-3 mb-8">
-                <div className="flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-gray-700">
-                  <span className="w-4 h-4 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0">
-                    <Check className="w-2.5 h-2.5 stroke-[3]" />
-                  </span>
-                  25 creators hired - 25 pieces of content produced - zero manual outreach
-                </div>
-
-                <div className="flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-gray-700">
-                  <span className="w-4 h-4 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0">
-                    <Check className="w-2.5 h-2.5 stroke-[3]" />
-                  </span>
-                  Content deployed across organic channels and tested in paid ads
-                </div>
-
-                <div className="flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-gray-700">
-                  <span className="w-4 h-4 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0">
-                    <Check className="w-2.5 h-2.5 stroke-[3]" />
-                  </span>
-                  Clear performance data on what drives engagement and conversion
-                </div>
-              </div>
-
-              <div className="text-xs text-gray-500 font-medium mb-6">
-                CEO, <span className="font-bold text-gray-900">Mane Theorie</span>
-              </div>
-
-              <a
-                href="#case-study"
-                className="inline-flex items-center gap-2 bg-[#22252a] hover:bg-black text-white px-6 py-3 rounded-xl font-bold text-xs transition-all shadow-xs cursor-pointer group"
-              >
-                View case study
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-              </a>
-            </div>
-
-          </div>
-        </div>
+      <section className="py-8">
+        <WhatBrandsSay />
       </section>
 
       {/* ------------------------------------------------------------- */}
@@ -645,13 +589,13 @@ export const MarketingTeamsPage: React.FC<MarketingTeamsPageProps> = () => {
               Less time managing the process. More time running the campaigns.
             </div>
 
-            <a
-              href="#book-demo"
+            <button
+              onClick={onNavigateSearch}
               className="inline-flex items-center gap-2 bg-[#22252a] hover:bg-black text-white px-7 py-3.5 rounded-xl font-bold text-sm transition-all duration-200 shadow-md hover:shadow-xl cursor-pointer group"
             >
               Book a Demo
               <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-            </a>
+            </button>
           </div>
 
           {/* Right Progress Card (Dark Container) */}
@@ -719,18 +663,18 @@ export const MarketingTeamsPage: React.FC<MarketingTeamsPageProps> = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-            <a
-              href="#book-demo"
+            <button
+              onClick={onNavigateSearch}
               className="w-full sm:w-auto inline-flex items-center justify-center bg-white hover:bg-gray-100 text-gray-900 font-bold px-8 py-3.5 rounded-xl transition-all duration-200 shadow-lg text-sm cursor-pointer"
             >
               Book a Demo
-            </a>
-            <a
-              href="#start-free"
+            </button>
+            <button
+              onClick={onNavigateSearch}
               className="w-full sm:w-auto inline-flex items-center justify-center bg-transparent border border-gray-600 hover:bg-gray-800 text-white font-bold px-8 py-3.5 rounded-xl transition-all duration-200 text-sm cursor-pointer"
             >
               Start free
-            </a>
+            </button>
           </div>
         </div>
       </section>

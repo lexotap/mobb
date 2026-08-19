@@ -1,69 +1,69 @@
 import React, { useState } from 'react';
 
-// Theme definitions for interactive small cards
+// Theme definitions for interactive small cards using Case Study Brands
 const MARKETING_THEMES = [
   {
-    query: 'beauty creators',
+    query: 'hospitality & travel',
     items: [
-      { name: '@dbrkv_', stats: '88.5K · 6.3% ER', price: '$220', color: '#e88168' },
-      { name: '@ivana_marketin', stats: '75.4K · 8.4% ER', price: '$160', color: '#70a5f0' }
+      { name: '@marriottbonvoy', stats: '1.2M · 5.4% ER', price: '$350', color: '#e11d48' },
+      { name: '@thedorianhotel', stats: '84.5K · 7.2% ER', price: '$220', color: '#059669' }
     ]
   },
   {
-    query: 'fitness coaches',
+    query: 'fashion & apparel',
     items: [
-      { name: '@herman.strydom', stats: '112K · 4.8% ER', price: '$190', color: '#10b981' },
-      { name: '@stephen_g___', stats: '175K · 6.5% ER', price: '$290', color: '#f59e0b' }
+      { name: '@snagtights', stats: '240K · 6.8% ER', price: '$280', color: '#ec4899' },
+      { name: '@orakiclothing', stats: '68.2K · 8.1% ER', price: '$190', color: '#0891b2' }
     ]
   },
   {
-    query: 'tech reviewers',
+    query: 'culinary & lifestyle',
     items: [
-      { name: '@janar_juhkov', stats: '96.2K · 5.6% ER', price: '$270', color: '#3b82f6' },
-      { name: '@simply_mr.frost', stats: '142K · 6.1% ER', price: '$320', color: '#8b5cf6' }
+      { name: '@mille.yyc', stats: '52.4K · 9.4% ER', price: '$160', color: '#d97706' },
+      { name: '@omnipet', stats: '118K · 6.2% ER', price: '$240', color: '#10b981' }
     ]
   }
 ];
 
 const AGENCY_THEMES = [
   [
-    { name: 'Aroma Co.', active: '3 active', char: 'A', bg: '#e88863' },
-    { name: 'Bloom Skincare', active: '7 active', char: 'B', bg: '#5b72e6', selected: true },
-    { name: 'Crisp Foods', active: '2 active', char: 'C', bg: '#9a78e8' }
+    { name: 'Marriott Bonvoy', active: '12 active', char: 'M', bg: '#e11d48' },
+    { name: 'Porsche Canada', active: '8 active', char: 'P', bg: '#2563eb', selected: true },
+    { name: 'Mille Restaurant', active: '4 active', char: 'M', bg: '#d97706' }
   ],
   [
-    { name: 'Zen Cafe', active: '5 active', char: 'Z', bg: '#10b981' },
-    { name: 'Hydro Hydrate', active: '12 active', char: 'H', bg: '#3b82f6', selected: true },
-    { name: 'Pulse Wear', active: '4 active', char: 'P', bg: '#f59e0b' }
+    { name: 'The Dorian Hotel', active: '6 active', char: 'D', bg: '#059669' },
+    { name: 'Snag Tights', active: '15 active', char: 'S', bg: '#ec4899', selected: true },
+    { name: 'Oraki Apparel', active: '5 active', char: 'O', bg: '#0891b2' }
   ],
   [
-    { name: 'Glow Skin', active: '8 active', char: 'G', bg: '#ec4899' },
-    { name: 'Fresh Meal', active: '15 active', char: 'F', bg: '#8b5cf6', selected: true },
-    { name: 'Terra Design', active: '6 active', char: 'T', bg: '#6b7280' }
+    { name: 'Omni Pet', active: '9 active', char: 'O', bg: '#10b981' },
+    { name: 'Wealthsimple', active: '18 active', char: 'W', bg: '#6366f1', selected: true },
+    { name: 'Bakesy App', active: '7 active', char: 'B', bg: '#f43f5e' }
   ]
 ];
 
 const FOUNDER_BRIEFS = [
   {
-    title: 'Skincare Line Summer Launch Brief',
-    applicants: '70 applicants',
-    budget: '$500 budget · 3 creators',
-    color: '#d96332',
-    char: 'b'
+    title: 'Mille European Launch UGC Brief',
+    applicants: '95 applicants',
+    budget: '$1,200 budget · 4 creators',
+    color: '#d97706',
+    char: 'M'
   },
   {
-    title: 'Energy Drink TikTok Video Campaign',
-    applicants: '115 applicants',
-    budget: '$800 budget · 5 creators',
+    title: 'Snag Tights TikTok Spark Campaign',
+    applicants: '160 applicants',
+    budget: '$2,500 budget · 6 creators',
+    color: '#ec4899',
+    char: 'S'
+  },
+  {
+    title: 'Omni Pet Nutrition Video Activation',
+    applicants: '74 applicants',
+    budget: '$800 budget · 3 creators',
     color: '#10b981',
-    char: 'e'
-  },
-  {
-    title: 'AI Coding Assistant Reels Promo',
-    applicants: '45 applicants',
-    budget: '$1,200 budget · 2 creators',
-    color: '#6366f1',
-    char: 'a'
+    char: 'O'
   }
 ];
 
@@ -74,7 +74,12 @@ const ENTERPRISE_QUARTERS = [
   { label: 'Q2 program', gain: '↑ 2.9×', color: '#8b5cf6', heights: ['25%', '35%', '30%', '50%', '60%', '80%'] }
 ];
 
-export function TeamsSection() {
+interface TeamsSectionProps {
+  onNavigate?: (page: 'home' | 'search-creators' | 'creator-chat' | 'performance-tracking' | 'campaign-briefs' | 'secure-global-payments' | 'team-workspace' | 'bring-manage-creators' | 'marketing-teams' | 'agencies' | 'founders' | 'ugc-for-ads' | 'influencer-marketing' | 'affiliate-marketing' | 'pricing' | 'for-creators' | 'case-studies') => void;
+  onOpenSignUp?: (role?: 'creator' | 'brand') => void;
+}
+
+export function TeamsSection({ onNavigate, onOpenSignUp }: TeamsSectionProps) {
   const [marketingIndex, setMarketingIndex] = useState(0);
   const [agencyIndex, setAgencyIndex] = useState(0);
   const [founderIndex, setFounderIndex] = useState(0);
@@ -164,12 +169,12 @@ export function TeamsSection() {
 
               {/* Pill Button */}
               <div className="pt-4">
-                <a
-                  href="#search"
-                  className="inline-flex items-center justify-center border-1.5 border-gray-900/80 hover:border-black text-gray-900 hover:bg-black/10 font-bold text-xs px-5 py-2 rounded-full transition-all active:scale-95"
+                <button
+                  onClick={() => onOpenSignUp?.('brand')}
+                  className="inline-flex items-center justify-center border-1.5 border-gray-900/80 hover:border-black text-gray-900 hover:bg-black/10 font-bold text-xs px-5 py-2 rounded-full transition-all active:scale-95 cursor-pointer"
                 >
                   Start Free
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -231,12 +236,12 @@ export function TeamsSection() {
 
               {/* Pill Button */}
               <div className="pt-4">
-                <a
-                  href="#contact"
-                  className="inline-flex items-center justify-center border-1.5 border-gray-900/80 hover:border-black text-gray-900 hover:bg-black/10 font-bold text-xs px-5 py-2 rounded-full transition-all active:scale-95"
+                <button
+                  onClick={() => onNavigate?.('agencies')}
+                  className="inline-flex items-center justify-center border-1.5 border-gray-900/80 hover:border-black text-gray-900 hover:bg-black/10 font-bold text-xs px-5 py-2 rounded-full transition-all active:scale-95 cursor-pointer"
                 >
                   Talk to Us
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -293,12 +298,12 @@ export function TeamsSection() {
 
               {/* Pill Button */}
               <div className="pt-4">
-                <a
-                  href="#search"
-                  className="inline-flex items-center justify-center border-1.5 border-gray-900/80 hover:border-black text-gray-900 hover:bg-black/10 font-bold text-xs px-5 py-2 rounded-full transition-all active:scale-95"
+                <button
+                  onClick={() => onOpenSignUp?.('brand')}
+                  className="inline-flex items-center justify-center border-1.5 border-gray-900/80 hover:border-black text-gray-900 hover:bg-black/10 font-bold text-xs px-5 py-2 rounded-full transition-all active:scale-95 cursor-pointer"
                 >
                   Start Free
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -361,12 +366,12 @@ export function TeamsSection() {
 
               {/* Pill Button */}
               <div className="pt-4">
-                <a
-                  href="#contact"
-                  className="inline-flex items-center justify-center border-1.5 border-gray-900/80 hover:border-black text-gray-900 hover:bg-black/10 font-bold text-xs px-5 py-2 rounded-full transition-all active:scale-95"
+                <button
+                  onClick={() => onNavigate?.('marketing-teams')}
+                  className="inline-flex items-center justify-center border-1.5 border-gray-900/80 hover:border-black text-gray-900 hover:bg-black/10 font-bold text-xs px-5 py-2 rounded-full transition-all active:scale-95 cursor-pointer"
                 >
                   Talk to Us
-                </a>
+                </button>
               </div>
             </div>
           </div>

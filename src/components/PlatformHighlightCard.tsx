@@ -157,7 +157,12 @@ const TOOLS: ToolIcon[] = [
   },
 ];
 
-export function PlatformHighlightCard() {
+interface PlatformHighlightCardProps {
+  onNavigate?: (page: 'home' | 'search-creators' | 'creator-chat' | 'performance-tracking' | 'campaign-briefs' | 'secure-global-payments' | 'team-workspace' | 'bring-manage-creators' | 'marketing-teams' | 'agencies' | 'founders' | 'ugc-for-ads' | 'influencer-marketing' | 'affiliate-marketing' | 'pricing' | 'for-creators' | 'case-studies') => void;
+  onOpenSignUp?: (role?: 'creator' | 'brand') => void;
+}
+
+export function PlatformHighlightCard({ onNavigate, onOpenSignUp }: PlatformHighlightCardProps) {
   // Animation loop phases: 'logo' (0-1.8s) -> 'burst' (1.8s-4.6s) -> 'implode' (4.6s-5.8s) -> repeat
   const [phase, setPhase] = useState<'logo' | 'burst' | 'implode'>('logo');
   const [isMobile, setIsMobile] = useState(false);
@@ -213,12 +218,12 @@ export function PlatformHighlightCard() {
               </p>
 
               <div>
-                <a
-                  href="#search"
-                  className="inline-flex items-center justify-center bg-[#282a2e] hover:bg-black text-white text-sm sm:text-base font-bold px-7 py-3.5 rounded-2xl transition-all shadow-md active:scale-95"
+                <button
+                  onClick={() => onNavigate?.('search-creators')}
+                  className="inline-flex items-center justify-center bg-[#282a2e] hover:bg-black text-white text-sm sm:text-base font-bold px-7 py-3.5 rounded-2xl transition-all shadow-md active:scale-95 cursor-pointer"
                 >
                   Get Started Free
-                </a>
+                </button>
               </div>
             </div>
 

@@ -353,9 +353,9 @@ const caseStudiesData: CaseStudy[] = [
     ],
     quote: {
       headline: "Creating an Instant Culinary Icon in the City",
-      text: "Bujou Studio turned our restaurant launch into a cultural event. Their PR, photography, and influencer strategy filled our tables from day one and tripled our revenue expectations.",
+      text: "Mobb turned our restaurant launch into a cultural event. Their PR, photography, and influencer strategy filled our tables from day one and tripled our revenue expectations.",
       author: "Managing Partner",
-      role: "Mille Restaurant x Bujou Studio"
+      role: "Mille Restaurant x Mobb"
     }
   },
   {
@@ -3858,7 +3858,7 @@ export const CaseStudiesPage: React.FC<CaseStudiesPageProps> = ({
               <div
                 key={study.id}
                 onClick={() => setActiveStudyId(study.id)}
-                className="group bg-white border border-slate-200/80 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all rounded-3xl p-6 sm:p-8 min-h-[420px] flex flex-col justify-between cursor-pointer overflow-hidden"
+                className="group bg-white border border-slate-200/80 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all rounded-3xl p-5 sm:p-8 min-h-[380px] sm:min-h-[420px] flex flex-col justify-between cursor-pointer overflow-hidden"
               >
                 <div>
                   {/* Top Row */}
@@ -3871,16 +3871,20 @@ export const CaseStudiesPage: React.FC<CaseStudiesPageProps> = ({
                     </span>
                   </div>
 
-                  {/* Card Front Image Picture */}
+                  {/* Card Front Image Picture - Responsive Aspect Ratio */}
                   {(study.cardImage || study.heroImage) && (
-                    <div className="w-full h-44 rounded-2xl overflow-hidden mb-5 bg-slate-100 relative shadow-xs">
+                    <div className="w-full aspect-[16/10] sm:aspect-[16/9] rounded-2xl overflow-hidden mb-5 bg-slate-50 border border-slate-100/80 relative shadow-xs flex items-center justify-center">
                       <img
                         src={study.cardImage || study.heroImage}
                         alt={`${study.brandName} Case Study`}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        className={`w-full h-full ${
+                          study.id === 'bakesy' || (study.categories && study.categories.some(c => c.toLowerCase().includes('tech') || c.toLowerCase().includes('software')))
+                            ? 'object-contain p-4 sm:p-5 bg-white'
+                            : 'object-cover group-hover:scale-105'
+                        } transition-transform duration-500`}
                         referrerPolicy="no-referrer"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none" />
                     </div>
                   )}
 

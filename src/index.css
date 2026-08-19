@@ -98,6 +98,26 @@ p, .font-body {
   letter-spacing: -0.02em;
 }
 
+/* Hero Dark Container */
+.hero-container {
+  background: radial-gradient(circle at 50% 30%, #282738 0%, #15161B 100%) !important;
+}
+
+/* Highlighted Word in Title */
+.hero-highlight {
+  color: #9B87F5 !important;
+}
+
+/* Search Button & PRO Badges */
+.search-btn, .badge-pro {
+  background-color: #9B87F5 !important;
+  color: #ffffff !important;
+}
+
+.search-btn:hover {
+  background-color: #8A75E5 !important;
+}
+
 .hero-headline {
   font-family: var(--font-display);
   font-style: normal;

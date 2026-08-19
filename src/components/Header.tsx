@@ -49,7 +49,7 @@ export const Header: React.FC<HeaderProps> = ({
   };
 
   return (
-    <header className="w-full px-4 sm:px-6 md:px-8 lg:px-12 py-4 flex items-center justify-between bg-white text-gray-900 font-sans z-50 relative border-b border-gray-100 lg:border-b-0">
+    <header className="w-full px-4 sm:px-6 md:px-8 lg:px-12 py-2.5 sm:py-3 flex items-center justify-between bg-white text-gray-900 font-sans z-50 relative border-b border-gray-100 lg:border-b-0">
       {/* Brand Logo */}
       <div className="flex items-center gap-8">
         <a
@@ -60,8 +60,8 @@ export const Header: React.FC<HeaderProps> = ({
           <span className="text-2xl font-extrabold tracking-tight text-gray-900 font-sans">
             mobb
           </span>
-          <div className="w-6 h-6 rounded-full bg-[#f43f5e]/10 flex items-center justify-center text-[#f43f5e] group-hover:scale-110 transition-transform">
-            <MessageSquareHeart className="w-4 h-4 fill-[#f43f5e]" />
+          <div className="w-6 h-6 rounded-full bg-[#9B87F5]/15 flex items-center justify-center text-[#9B87F5] group-hover:scale-110 transition-transform">
+            <MessageSquareHeart className="w-4 h-4 fill-[#9B87F5]" />
           </div>
         </a>
 
@@ -105,7 +105,7 @@ export const Header: React.FC<HeaderProps> = ({
                         Search Creators
                       </div>
                       <div className="text-gray-500 text-xs mt-0.5 font-normal leading-relaxed">
-                        Vetted marketplace of 1.1m+ creators
+                        Vetted marketplace of 500,000+ creators
                       </div>
                     </div>
                   </button>
@@ -464,10 +464,10 @@ export const Header: React.FC<HeaderProps> = ({
             </button>
             {activeDropdown === 'features' && (
               <div className="mt-3 pl-1 flex flex-col gap-3 text-sm text-gray-600">
-                <a href="#search" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2.5 py-1 hover:text-gray-900 font-medium">
+                <button onClick={(e) => handleNav('search-creators', e)} className="flex items-center gap-2.5 py-1 hover:text-gray-900 font-medium text-left w-full cursor-pointer">
                   <span className="w-6 h-6 rounded-lg bg-pink-100 flex items-center justify-center shrink-0"><Search className="w-3.5 h-3.5 text-pink-700" /></span>
                   Search Creators
-                </a>
+                </button>
                 <button onClick={(e) => handleNav('secure-global-payments', e)} className="flex items-center gap-2.5 py-1 hover:text-gray-900 font-medium text-left w-full cursor-pointer">
                   <span className="w-6 h-6 rounded-lg bg-blue-100 flex items-center justify-center shrink-0"><CreditCard className="w-3.5 h-3.5 text-blue-700" /></span>
                   Secure Global Payments
@@ -515,14 +515,14 @@ export const Header: React.FC<HeaderProps> = ({
                   <span className="w-6 h-6 rounded-lg bg-blue-100 flex items-center justify-center shrink-0"><Building2 className="w-3.5 h-3.5 text-blue-800" /></span>
                   Agencies
                 </button>
-                <a href="#founders" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2.5 py-1 hover:text-gray-900 font-medium">
+                <button onClick={(e) => handleNav('founders', e)} className="flex items-center gap-2.5 py-1 hover:text-gray-900 font-medium text-left cursor-pointer">
                   <span className="w-6 h-6 rounded-lg bg-orange-100 flex items-center justify-center shrink-0"><Rocket className="w-3.5 h-3.5 text-orange-800" /></span>
                   Founders
-                </a>
-                <a href="#case-studies" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2.5 py-1 hover:text-gray-900 font-medium">
+                </button>
+                <button onClick={(e) => handleNav('case-studies', e)} className="flex items-center gap-2.5 py-1 hover:text-gray-900 font-medium text-left cursor-pointer">
                   <span className="w-6 h-6 rounded-lg bg-purple-100 flex items-center justify-center shrink-0"><Award className="w-3.5 h-3.5 text-purple-800" /></span>
                   Case Studies
-                </a>
+                </button>
               </div>
             )}
           </div>
@@ -561,6 +561,13 @@ export const Header: React.FC<HeaderProps> = ({
           >
             Pricing
           </button>
+          <button
+            onClick={(e) => handleNav('for-creators', e)}
+            className="text-base font-semibold text-gray-800 py-1 hover:text-gray-900 text-left cursor-pointer"
+          >
+            For Creators
+          </button>
+
           {/* Mobile Auth Buttons */}
           <div className="pt-2 flex flex-col gap-2 border-t border-gray-100 mt-1">
             <button

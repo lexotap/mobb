@@ -15,6 +15,20 @@ import {
   ChevronDown
 } from 'lucide-react';
 import { TrustedBrands } from './TrustedBrands';
+import { WhatBrandsSay } from './WhatBrandsSay';
+import {
+  oliviaPezzenteImg,
+  niloofarTaghaviImg,
+  renateReinsveImg,
+  stephenGImg,
+  marimiqadzzeImg,
+  ivanaMarketinImg,
+  hermanStrydomImg,
+  alicjaWerniewiczImg,
+  lettersOfTravelImg,
+  paolaSantanaImg,
+} from '../avatars';
+import { marriottCaseStudyImg } from '../casestudies';
 
 interface AffiliateMarketingPageProps {
   onNavigateHome?: () => void;
@@ -53,7 +67,7 @@ export const AffiliateMarketingPage: React.FC<AffiliateMarketingPageProps> = ({ 
   };
 
   const toolsTabs = [
-    { id: 1, label: '01 Creator Discovery', title: 'Find the Right Creator before You Commit', description: 'Search 1.1m+ vetted Creators by platform, niche, audience, and budget. See verified engagement rates and demographics before you commit. Spend less time searching and more time running campaigns.', pills: ['Vetted creators', 'Detailed audience demographics', 'Free to search'] },
+    { id: 1, label: '01 Creator Discovery', title: 'Find the Right Creator before You Commit', description: 'Search 500,000+ vetted Creators by platform, niche, audience, and budget. See verified engagement rates and demographics before you commit. Spend less time searching and more time running campaigns.', pills: ['Vetted creators', 'Detailed audience demographics', 'Free to search'] },
     { id: 2, label: '02 AI Campaign Briefs', title: 'AI-Powered Campaign Brief Generator', description: 'Generate clear guidelines in seconds. Include hooks, visual guidelines, file requirements, and brand guardrails without writing from scratch.', pills: ['Instant AI briefs', 'Platform specs', 'Custom deliverables'] },
     { id: 3, label: '03 Order Management', title: 'Track Submissions & Revisions in One Place', description: 'Review creator content submissions directly in your browser. Request edits or accept content with a single click. Centralize all campaign assets.', pills: ['In-browser review', 'Unlimited revisions', 'Asset library'] },
     { id: 4, label: '04 Global Payments', title: 'Escrow Protection & Automated Invoicing', description: 'Hold payments safely until content is approved. Automatically generate tax forms, multi-currency invoices, and receipts for your finance team.', pills: ['Escrow protection', 'Multi-currency', 'Automated receipts'] },
@@ -114,7 +128,7 @@ export const AffiliateMarketingPage: React.FC<AffiliateMarketingPageProps> = ({ 
                 <span className="w-4 h-4 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0">
                   <Check className="w-2.5 h-2.5 stroke-[3]" />
                 </span>
-                1.1m+ vetted creators across Instagram, TikTok, and YouTube
+                500,000+ vetted creators across Instagram, TikTok, and YouTube
               </div>
 
               <div className="bg-gray-100/90 rounded-full px-3.5 py-1.5 text-xs font-medium text-gray-700 flex items-center gap-1.5">
@@ -154,7 +168,7 @@ export const AffiliateMarketingPage: React.FC<AffiliateMarketingPageProps> = ({ 
                 <div className="flex items-center justify-between bg-gray-50 p-3 rounded-xl">
                   <div className="flex items-center gap-3">
                     <img
-                      src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=120"
+                      src={oliviaPezzenteImg}
                       alt="Amara"
                       className="w-10 h-10 rounded-full object-cover"
                     />
@@ -313,7 +327,7 @@ export const AffiliateMarketingPage: React.FC<AffiliateMarketingPageProps> = ({ 
               <div className="w-full max-w-md bg-white rounded-2xl shadow-xl border border-gray-100 p-5 space-y-3 text-xs">
                 <div className="flex items-center justify-between border-b pb-2">
                   <div className="flex items-center gap-2">
-                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=60" className="w-6 h-6 rounded-full object-cover" alt="@amaralewis" />
+                    <img src={oliviaPezzenteImg} className="w-6 h-6 rounded-full object-cover" alt="@amaralewis" />
                     <span className="font-bold text-gray-900">@amaralewis</span>
                   </div>
                   <span className="bg-emerald-100 text-emerald-800 text-[9px] font-bold px-2 py-0.5 rounded-full">Terms agreed</span>
@@ -364,7 +378,7 @@ export const AffiliateMarketingPage: React.FC<AffiliateMarketingPageProps> = ({ 
                 <div className="space-y-2 text-xs">
                   <div className="flex items-center justify-between p-2.5 bg-gray-50 rounded-xl">
                     <div className="flex items-center gap-2">
-                      <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=60" className="w-6 h-6 rounded-full object-cover" alt="Hana" />
+                      <img src={niloofarTaghaviImg} className="w-6 h-6 rounded-full object-cover" alt="Hana" />
                       <div>
                         <div className="font-bold text-gray-900 text-[11px]">Hana Kim</div>
                         <div className="text-[9px] text-gray-400">TikTok · Posted</div>
@@ -375,7 +389,7 @@ export const AffiliateMarketingPage: React.FC<AffiliateMarketingPageProps> = ({ 
 
                   <div className="flex items-center justify-between p-2.5 bg-gray-50 rounded-xl">
                     <div className="flex items-center gap-2">
-                      <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=60" className="w-6 h-6 rounded-full object-cover" alt="Jess" />
+                      <img src={renateReinsveImg} className="w-6 h-6 rounded-full object-cover" alt="Jess" />
                       <div>
                         <div className="font-bold text-gray-900 text-[11px]">Jess Park</div>
                         <div className="text-[9px] text-gray-400">Instagram · Live</div>
@@ -386,7 +400,7 @@ export const AffiliateMarketingPage: React.FC<AffiliateMarketingPageProps> = ({ 
 
                   <div className="flex items-center justify-between p-2.5 bg-gray-50 rounded-xl">
                     <div className="flex items-center gap-2">
-                      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=60" className="w-6 h-6 rounded-full object-cover" alt="Tyler" />
+                      <img src={stephenGImg} className="w-6 h-6 rounded-full object-cover" alt="Tyler" />
                       <div>
                         <div className="font-bold text-gray-900 text-[11px]">Tyler Brooks</div>
                         <div className="text-[9px] text-gray-400">TikTok · In review</div>
@@ -433,7 +447,7 @@ export const AffiliateMarketingPage: React.FC<AffiliateMarketingPageProps> = ({ 
                 <div className="space-y-2 text-xs">
                   <div className="flex items-center justify-between p-2 bg-gray-50 rounded-xl">
                     <div className="flex items-center gap-2">
-                      <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=60" className="w-6 h-6 rounded-full object-cover" alt="Priya" />
+                      <img src={marimiqadzzeImg} className="w-6 h-6 rounded-full object-cover" alt="Priya" />
                       <div>
                         <div className="font-bold text-[11px]">Priya Nair</div>
                         <div className="text-[9px] text-gray-400">Beauty · 6 posts live</div>
@@ -444,7 +458,7 @@ export const AffiliateMarketingPage: React.FC<AffiliateMarketingPageProps> = ({ 
 
                   <div className="flex items-center justify-between p-2 bg-gray-50 rounded-xl">
                     <div className="flex items-center gap-2">
-                      <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=60" className="w-6 h-6 rounded-full object-cover" alt="Drea" />
+                      <img src={ivanaMarketinImg} className="w-6 h-6 rounded-full object-cover" alt="Drea" />
                       <div>
                         <div className="font-bold text-[11px]">Drea Phillips</div>
                         <div className="text-[9px] text-gray-400">Wellness · ongoing</div>
@@ -455,7 +469,7 @@ export const AffiliateMarketingPage: React.FC<AffiliateMarketingPageProps> = ({ 
 
                   <div className="flex items-center justify-between p-2 bg-gray-50 rounded-xl">
                     <div className="flex items-center gap-2">
-                      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=60" className="w-6 h-6 rounded-full object-cover" alt="Hana" />
+                      <img src={niloofarTaghaviImg} className="w-6 h-6 rounded-full object-cover" alt="Hana" />
                       <div>
                         <div className="font-bold text-[11px]">Hana Kim</div>
                         <div className="text-[9px] text-gray-400">Food · 4 posts live</div>
@@ -479,7 +493,7 @@ export const AffiliateMarketingPage: React.FC<AffiliateMarketingPageProps> = ({ 
               <div className="w-full max-w-md bg-white rounded-2xl shadow-xl border border-gray-100 p-5 space-y-3 text-xs">
                 <div className="flex items-center justify-between border-b pb-2 font-bold">
                   <div className="flex items-center gap-2">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=60" className="w-6 h-6 rounded-full object-cover" alt="Marco" />
+                    <img src={hermanStrydomImg} className="w-6 h-6 rounded-full object-cover" alt="Marco" />
                     <span>Marco Liu</span>
                   </div>
                   <span className="bg-emerald-100 text-emerald-800 text-[9px] font-bold px-2 py-0.5 rounded-full">In escrow</span>
@@ -582,9 +596,9 @@ export const AffiliateMarketingPage: React.FC<AffiliateMarketingPageProps> = ({ 
                   </div>
 
                   <div className="grid grid-cols-3 gap-2">
-                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200" className="w-full h-24 object-cover rounded-xl" alt="C1" />
-                    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=200" className="w-full h-24 object-cover rounded-xl" alt="C2" />
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200" className="w-full h-24 object-cover rounded-xl" alt="C3" />
+                    <img src={alicjaWerniewiczImg} className="w-full h-24 object-cover rounded-xl" alt="C1" />
+                    <img src={lettersOfTravelImg} className="w-full h-24 object-cover rounded-xl" alt="C2" />
+                    <img src={paolaSantanaImg} className="w-full h-24 object-cover rounded-xl" alt="C3" />
                   </div>
                 </div>
               </div>
@@ -640,7 +654,7 @@ export const AffiliateMarketingPage: React.FC<AffiliateMarketingPageProps> = ({ 
                   <span className="font-bold text-gray-900">Finding creators</span>
                   <span className="text-gray-500">On your own</span>
                   <span className="font-extrabold text-emerald-700 flex items-center gap-1">
-                    <Check className="w-3 h-3 stroke-[3]" /> 1.1m+ vetted creators in-platform
+                    <Check className="w-3 h-3 stroke-[3]" /> 500,000+ vetted creators in-platform
                   </span>
                 </div>
 
@@ -683,49 +697,10 @@ export const AffiliateMarketingPage: React.FC<AffiliateMarketingPageProps> = ({ 
       </section>
 
       {/* ------------------------------------------------------------- */}
-      {/* SECTION 8: WHAT BRANDS SAY (MANE THEORY CASE STUDY)           */}
+      {/* SECTION 8: WHAT BRANDS SAY                                    */}
       {/* ------------------------------------------------------------- */}
-      <section className="max-w-[1140px] mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h2 style={sectionHeadingStyle} className="text-center tracking-tight mb-12">
-          What Brands Say
-        </h2>
-
-        <div className="bg-gray-50 rounded-[32px] p-8 sm:p-12 border border-gray-200/60 shadow-xs max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            
-            <div className="lg:col-span-5 flex justify-center">
-              <div className="w-full max-w-[240px] h-[280px] rounded-2xl overflow-hidden border border-gray-200 shadow-md relative">
-                <img
-                  src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&q=80&w=400"
-                  alt="Mane Theory Product"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-md text-white text-[10px] font-bold px-2.5 py-1 rounded-lg">
-                  Mane Theory
-                </div>
-              </div>
-            </div>
-
-            <div className="lg:col-span-7 flex flex-col items-start text-left">
-              <p className="text-gray-800 text-base sm:text-lg font-medium leading-relaxed mb-6">
-                "We run creator content on a monthly basis. Having campaigns and live post tracking in one place means we are not cobbling things together across tools. I don't need a spreadsheet, a separate analytics tool, and a messaging app, it's all in one place."
-              </p>
-
-              <div className="mb-6">
-                <div className="font-bold text-gray-900 text-sm">Marsha Jean-Louis</div>
-                <div className="text-xs text-gray-500 font-medium">CEO Mane Theory</div>
-              </div>
-
-              <a
-                href="#case-study"
-                className="inline-flex items-center gap-2 bg-[#22252a] hover:bg-black text-white px-6 py-3 rounded-xl font-bold text-xs transition-all shadow-xs cursor-pointer group"
-              >
-                ↗ View Case Study
-              </a>
-            </div>
-
-          </div>
-        </div>
+      <section className="py-8">
+        <WhatBrandsSay />
       </section>
 
       {/* ------------------------------------------------------------- */}
@@ -761,7 +736,7 @@ export const AffiliateMarketingPage: React.FC<AffiliateMarketingPageProps> = ({ 
         </div>
 
         <div className="text-center mt-12 text-xs text-gray-500 font-medium">
-          Have another question? <a href="#contact" className="text-gray-900 font-bold underline">Contact sales →</a>
+          Have another question? <button onClick={onNavigateSearch} className="text-gray-900 font-bold underline cursor-pointer">Contact sales →</button>
         </div>
       </section>
 
@@ -780,12 +755,12 @@ export const AffiliateMarketingPage: React.FC<AffiliateMarketingPageProps> = ({ 
           </p>
 
           <div className="flex justify-center">
-            <a
-              href="#start-free"
+            <button
+              onClick={onNavigateSearch}
               className="inline-flex items-center justify-center bg-white hover:bg-gray-100 text-gray-900 font-bold px-8 py-3.5 rounded-xl transition-all duration-200 shadow-lg text-sm cursor-pointer"
             >
               Start free
-            </a>
+            </button>
           </div>
         </div>
       </section>
